@@ -14,6 +14,7 @@ public class Farmer : MonoBehaviour {
 	 */
 
 	private const float moveSpeed = 0.2f;
+	private const float stepHeight = 0.02f;
 
 	private float moveStartTime;
 	private float moveDuration;
@@ -27,7 +28,7 @@ public class Farmer : MonoBehaviour {
 	void Update () {
 		if (Input.GetMouseButtonDown(0)) {
 			Vector2 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			target = point;
+			target = Map.Bound(point);
 			startPos = transform.position;
 			Debug.DrawLine(startPos, target);
 			Debug.Log (target);
@@ -41,7 +42,8 @@ public class Farmer : MonoBehaviour {
 		if (state == FarmerState.Moving) {
 			float duration = Time.time - moveStartTime;
 			float progress = duration / moveDuration;
-			transform.position = Vector2.Lerp (startPos, target, duration / moveDuration);
+			Vector2 vertical = Vector2.up * Mathf.Pow(Mathf.Sin (Mathf.PI * progress * 3f * moveDuration), 4) * stepHeight;
+			transform.position = Vector2.Lerp (startPos, target, duration / moveDuration) + vertical;
 			if (duration > moveDuration) {
 				state = FarmerState.Idle;
 			}
