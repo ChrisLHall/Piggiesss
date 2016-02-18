@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.318, y: 0.493, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 486370}
@@ -51,7 +51,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140760}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.62, y: 0.28, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 472158}
@@ -79,6 +79,7 @@ MonoBehaviour:
     rightSprite: {fileID: 21300016, guid: 58b82bc4229f87b4fa2b7580660b1989, type: 3}
   - leftSprite: {fileID: 21300008, guid: 58b82bc4229f87b4fa2b7580660b1989, type: 3}
     rightSprite: {fileID: 21300018, guid: 58b82bc4229f87b4fa2b7580660b1989, type: 3}
+  poopPrefab: {fileID: 168250, guid: 8bf8a01138cee31469f00693b68eda94, type: 2}
 --- !u!212 &21205552
 SpriteRenderer:
   m_ObjectHideFlags: 1

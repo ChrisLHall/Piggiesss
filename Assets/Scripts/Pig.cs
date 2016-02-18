@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Pig : MonoBehaviour {
@@ -20,6 +20,9 @@ public class Pig : MonoBehaviour {
 	const float jumpDuration = 0.5f;
 	const float jumpHeight = 0.03f;
 
+    const float POOP_DELAY = 3f;
+    const float POOP_DELAY_RAND = 1f;
+
 	private Vector2 startPos;
 	private Vector2 target;
 
@@ -28,6 +31,16 @@ public class Pig : MonoBehaviour {
 	public enum PigState {Jumping, Idle};
 	private PigState state;
 
+    public GameObject poopPrefab;
+    Coroutine poopCoroutine;
+
+    int poopLeft;
+    const int POOPS_PER_GRASS = 2;
+
+    void Awake () {
+        poopLeft = POOPS_PER_GRASS;
+    }
+
 	// Use this for initialization
 	void Start () {
 		sr = transform.FindChild("Graphics").GetComponent<SpriteRenderer>();
@@ -35,6 +48,7 @@ public class Pig : MonoBehaviour {
 		sr.sprite = sprites[sprite].leftSprite;
 		state = PigState.Idle;
 		ScheduleJump();
+        poopCoroutine = StartCoroutine(PoopSometimes());
 	}
 
 	private void ScheduleJump() {
@@ -56,6 +70,21 @@ public class Pig : MonoBehaviour {
 		state = PigState.Jumping;
 		jumpStartTime = Time.time;
 	}
+
+    IEnumerator PoopSometimes () {
+        while (poopLeft > 0) {
+            yield return new WaitForSeconds(POOP_DELAY + (-0.5f + Random.value)
+                    * POOP_DELAY_RAND);
+            Poop();
+            poopLeft--;
+        }
+    }
+
+    void Poop () {
+        GameObject newPoop = Instantiate<GameObject>(poopPrefab);
+        newPoop.transform.position = transform.position;
+        Debug.Log("POOO");
+    }
 		
 	// Update is called once per frame
 	void Update () {
