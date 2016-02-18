@@ -12,7 +12,7 @@ public class Pig : MonoBehaviour {
 	 * devMoveDelay - how much the jump delays should deviate
 	 * jumpRange - how far should the pig jump
 	 * jumpDuration - how long is the jump (seconds)
-	 * jumpHeight - how high should the pig jump
+	 * jumpHeight - how high should the pig jump 
 	 */
 	const float meanMoveDelay = 2f;
 	const float devMoveDelay = 1f;
