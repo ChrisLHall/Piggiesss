@@ -6,6 +6,12 @@ public class Grass : MonoBehaviour {
     int stateIndex;
     SpriteRenderer sr;
     const float growDelay = 3f;
+
+    public bool Edible {
+        get {
+            return (stateIndex == states.Length - 1);
+        }
+    }
     
 	void Awake () {
         sr = transform.FindChild("Graphics").GetComponent<SpriteRenderer>();

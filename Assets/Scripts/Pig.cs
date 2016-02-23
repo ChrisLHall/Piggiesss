@@ -72,11 +72,17 @@ public class Pig : MonoBehaviour {
 	}
 
     IEnumerator PoopSometimes () {
-        while (poopLeft > 0) {
-            yield return new WaitForSeconds(POOP_DELAY + (-0.5f + Random.value)
-                    * POOP_DELAY_RAND);
-            Poop();
-            poopLeft--;
+        for (;;) {
+            while (poopLeft > 0) {
+                yield return new WaitForSeconds(POOP_DELAY + (-0.5f + Random.value)
+                        * POOP_DELAY_RAND);
+                Poop();
+                poopLeft--;
+            }
+            while (poopLeft <= 0) {
+                yield return new WaitForSeconds(0.2f);
+
+            }
         }
     }
 
@@ -99,4 +105,12 @@ public class Pig : MonoBehaviour {
 			}
 		}
 	}
+
+    void OnTriggerStay2D (Collider2D other) {
+        Grass otherGrass = other.gameObject.GetComponent<Grass>();
+        if (otherGrass != null && otherGrass.Edible && poopLeft == 0) {
+            Destroy(other.gameObject);
+            poopLeft += POOPS_PER_GRASS;
+        }
+    }
 }

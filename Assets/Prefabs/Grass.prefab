@@ -25,6 +25,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 474570}
   - 114: {fileID: 11492624}
+  - 61: {fileID: 6163360}
   m_Layer: 9
   m_Name: Grass
   m_TagString: Untagged
@@ -57,6 +58,20 @@ Transform:
   - {fileID: 450670}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &6163360
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147322}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.000000044703484, y: 0.05229622}
+  serializedVersion: 2
+  m_Size: {x: 0.13188258, y: 0.13188231}
 --- !u!114 &11492624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -108,7 +123,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 147322}
