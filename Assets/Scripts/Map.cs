@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Map {
 
-	private static Rect bounds = new Rect (-1.369f, -0.74f, 1.8f, 1.0f);
+	private static Rect bounds = new Rect (-1.31f, -0.74f, 2.218f, 1.386f);
 
 	/* Returns the closest vector to v within the bounds of the map */
 	public static Vector2 Bound(Vector2 v) {
