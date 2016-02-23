@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Grass
+    uniqueID: 3990667785
+    locked: 0
+  - name: Poo
+    uniqueID: 3518263327
+    locked: 0
+  - name: Pig
+    uniqueID: 2098849897
+    locked: 0

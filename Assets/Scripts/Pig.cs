@@ -4,6 +4,7 @@ using System.Collections;
 public class Pig : MonoBehaviour {
 
 	public LeftRightSprite[] sprites;
+    readonly int[] GRASS_PER_AGE = new int[] { 3, 9, 20 };
 	private int sprite;
 	SpriteRenderer sr;
 
@@ -36,9 +37,11 @@ public class Pig : MonoBehaviour {
 
     int poopLeft;
     const int POOPS_PER_GRASS = 2;
+    int grassEaten;
 
     void Awake () {
         poopLeft = POOPS_PER_GRASS;
+        grassEaten = 0;
     }
 
 	// Use this for initialization
@@ -91,6 +94,14 @@ public class Pig : MonoBehaviour {
         newPoop.transform.position = transform.position;
         Debug.Log("POOO");
     }
+
+    void Eat () {
+        poopLeft += POOPS_PER_GRASS;
+        grassEaten++;
+        if (sprite < sprites.Length - 1 && grassEaten >= GRASS_PER_AGE[sprite]) {
+            sprite++;
+        }
+    }
 		
 	// Update is called once per frame
 	void Update () {
@@ -109,8 +120,9 @@ public class Pig : MonoBehaviour {
     void OnTriggerStay2D (Collider2D other) {
         Grass otherGrass = other.gameObject.GetComponent<Grass>();
         if (otherGrass != null && otherGrass.Edible && poopLeft == 0) {
+            Debug.Log("Yum");
             Destroy(other.gameObject);
-            poopLeft += POOPS_PER_GRASS;
+            Eat();
         }
     }
 }
