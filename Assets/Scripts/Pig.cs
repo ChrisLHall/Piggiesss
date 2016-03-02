@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class Pig : MonoBehaviour {
 
@@ -38,10 +39,12 @@ public class Pig : MonoBehaviour {
     int poopLeft;
     const int POOPS_PER_GRASS = 2;
     int grassEaten;
+    GameObject targetObj;
 
     void Awake () {
         poopLeft = POOPS_PER_GRASS;
         grassEaten = 0;
+        targetObj = null;
     }
 
 	// Use this for initialization
@@ -63,7 +66,19 @@ public class Pig : MonoBehaviour {
 	 */
 	IEnumerator JumpWithDelay(float delay) {
 		yield return new WaitForSeconds(delay);
-		target = Map.Bound(Random.insideUnitCircle * jumpRange + (Vector2) transform.position);
+        TargetGrassIfHungry();
+        if (targetObj == null) {
+            target = Map.inst.Bound(Random.insideUnitCircle * jumpRange
+                    + (Vector2)transform.position);
+        } else {
+            Vector3 vecToTarget = targetObj.transform.position
+                    - transform.position;
+            Vector3.ClampMagnitude(vecToTarget, jumpRange);
+            vecToTarget += Random.insideUnitSphere * jumpRange * 0.1f;
+            vecToTarget.z = 0;
+            target = transform.position + vecToTarget;
+        }
+
 		startPos = transform.position;
 		if (target.x > transform.position.x) {
 			sr.sprite = sprites[sprite].rightSprite;
@@ -100,6 +115,23 @@ public class Pig : MonoBehaviour {
         grassEaten++;
         if (sprite < sprites.Length - 1 && grassEaten >= GRASS_PER_AGE[sprite]) {
             sprite++;
+        }
+    }
+
+    void TargetGrassIfHungry () {
+        if (poopLeft == 0) {
+            Grass[] allGrass = FindObjectsOfType<Grass>();
+            if (allGrass.Length > 0) {
+                Grass grassTarg = allGrass.OrderBy((Grass g) => {
+                            if (!g.Edible) {
+                                return float.PositiveInfinity;
+                            }
+                            return (g.transform.position - transform.position).sqrMagnitude;
+                        }).First();
+                if (grassTarg.Edible) {
+                    targetObj = grassTarg.gameObject;
+                }
+            }
         }
     }
 		

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Farmer : MonoBehaviour {
@@ -28,7 +28,7 @@ public class Farmer : MonoBehaviour {
 	void Update () {
 		if (Input.GetMouseButtonDown(0)) {
 			Vector2 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			target = Map.Bound(point);
+			target = Map.inst.Bound(point);
 			startPos = transform.position;
 			Debug.DrawLine(startPos, target);
 			Debug.Log (target);
