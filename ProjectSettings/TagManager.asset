@@ -15,7 +15,7 @@ TagManager:
   - 
   - Pig
   - Grass
-  - 
+  - Buttons
   - 
   - 
   - 
@@ -49,4 +49,7 @@ TagManager:
     locked: 0
   - name: Pig
     uniqueID: 2098849897
+    locked: 0
+  - name: Buttons
+    uniqueID: 4171601971
     locked: 0
