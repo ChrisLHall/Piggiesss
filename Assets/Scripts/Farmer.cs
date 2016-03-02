@@ -13,7 +13,7 @@ public class Farmer : MonoBehaviour {
 	 * moveSpeed - movement speed in units per second
 	 */
 
-	private const float moveSpeed = 0.2f;
+	private const float moveSpeed = 0.6f;
 	private const float stepHeight = 0.02f;
 
 	private float moveStartTime;
@@ -42,7 +42,7 @@ public class Farmer : MonoBehaviour {
 		if (state == FarmerState.Moving) {
 			float duration = Time.time - moveStartTime;
 			float progress = duration / moveDuration;
-			Vector2 vertical = Vector2.up * Mathf.Pow(Mathf.Sin (Mathf.PI * progress * 3f * moveDuration), 4) * stepHeight;
+			Vector2 vertical = Vector2.up * (1f - Mathf.Pow(Mathf.Sin (Mathf.PI * progress * 3f * moveDuration), 4)) * stepHeight;
 			transform.position = Vector2.Lerp (startPos, target, duration / moveDuration) + vertical;
 			if (duration > moveDuration) {
 				state = FarmerState.Idle;
