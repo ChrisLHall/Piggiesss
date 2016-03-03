@@ -4,8 +4,9 @@ using System.Collections;
 public class FollowPlayer : MonoBehaviour {
 	void Update () {
         Farmer f = FindObjectOfType<Farmer>();
+        Vector3 pos = f.CameraLookPos;
         if (f != null) {
-            transform.position = new Vector3(f.transform.position.x, f.transform.position.y, transform.position.z);
+            transform.position = new Vector3(pos.x, pos.y, transform.position.z);
         }
 	}
 }
