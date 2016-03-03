@@ -73,7 +73,7 @@ public class Pig : MonoBehaviour {
         } else {
             Vector3 vecToTarget = targetObj.transform.position
                     - transform.position;
-            Vector3.ClampMagnitude(vecToTarget, jumpRange);
+            vecToTarget = Vector3.ClampMagnitude(vecToTarget, jumpRange);
             vecToTarget += Random.insideUnitSphere * jumpRange * 0.1f;
             target = Map.inst.Bound(transform.position + vecToTarget);
         }
