@@ -16,6 +16,7 @@ public class Farmer : MonoBehaviour {
         public FarmerActionType type;
         public Vector2 target;
     }
+    FarmerAction currentAction;
 
 	private Vector2 startPos;
 	private Vector2 target;
@@ -34,19 +35,25 @@ public class Farmer : MonoBehaviour {
 	private float moveStartTime;
 	private float moveDuration;
 
+    Toolbar toolbar;
+
     public Vector3 CameraLookPos { get; private set; }
 
 	// Use this for initialization
 	void Start () {
 		state = FarmerState.Idle;
         CameraLookPos = transform.position;
+        toolbar = FindObjectOfType<Toolbar>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonDown(0)) {
+		if (Input.GetMouseButtonDown(0) && !toolbar.BlockOtherClicks) {
             Vector2 point = Map.inst.Bound(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-            EnqueueAction(FarmerActionType.Move, point);
+            if (toolbar.ToolMode == FarmerActionType.Move) {
+                ClearActions();
+            }
+            EnqueueAction(toolbar.ToolMode, point);
         }
 
         if (state == FarmerState.Idle) {
@@ -58,7 +65,11 @@ public class Farmer : MonoBehaviour {
 			transform.position = Vector2.Lerp (startPos, target, duration / moveDuration) + vertical;
             CameraLookPos = transform.position - new Vector3(vertical.x, vertical.y);
 			if (duration > moveDuration) {
-				state = FarmerState.Idle;
+                if (currentAction.type != FarmerActionType.Move) {
+                    toolbar.CreatePrefabForAction(currentAction.type,
+                            transform.position);
+                }
+                state = FarmerState.Idle;
 			}
 		}
 
@@ -71,24 +82,29 @@ public class Farmer : MonoBehaviour {
         if (actions.Count == 0) {
             return;
         }
-        FarmerAction action = actions.First.Value;
+        currentAction = actions.First.Value;
         actions.RemoveFirst();
 
-        if (action.type == FarmerActionType.Move) {
-            target = action.target;
-            startPos = transform.position;
-            Debug.DrawLine(startPos, target, Color.blue, 0.1f);
-            //Debug.Log(target);
-            state = FarmerState.Moving;
-            moveStartTime = Time.time;
-
-            float moveDistance = Vector2.Distance(transform.position, target);
-            moveDuration = moveDistance / moveSpeed;
+        if (!toolbar.CanAffordAction(currentAction.type)) {
+            toolbar.UnsetTools();
+            DequeueAction();
+            return;
         }
+        
+        target = currentAction.target;
+        startPos = transform.position;
+        Debug.DrawLine(startPos, target, Color.blue, 0.1f);
+        //Debug.Log(target);
+        state = FarmerState.Moving;
+        moveStartTime = Time.time;
+
+        float moveDistance = Vector2.Distance(transform.position, target);
+        moveDuration = moveDistance / moveSpeed;
     }
 
     public void ClearActions () {
         actions.Clear();
+        state = FarmerState.Idle;
     }
 
     public void EnqueueAction (FarmerActionType actionType, Vector2 target) {
@@ -99,5 +115,12 @@ public class Farmer : MonoBehaviour {
         };
 
         actions.AddLast(newAction);
+    }
+
+    void OnTriggerStay2D (Collider2D other) {
+        if (other.name.StartsWith("poop")) {
+            Destroy(other.gameObject);
+            FindObjectOfType<PoopTracker>().poopChange(1);
+        }
     }
 }

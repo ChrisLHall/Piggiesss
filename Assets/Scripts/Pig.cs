@@ -151,7 +151,6 @@ public class Pig : MonoBehaviour {
     void OnTriggerStay2D (Collider2D other) {
         Grass otherGrass = other.gameObject.GetComponent<Grass>();
         if (otherGrass != null && otherGrass.Edible && poopLeft == 0) {
-            Debug.Log("Yum");
             Destroy(other.gameObject);
             Eat();
         }
