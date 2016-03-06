@@ -51,7 +51,6 @@ public class Toolbar : MonoBehaviour {
         UpdateButtonSprites();
 
         BlockOtherClicks = true;
-        FindObjectOfType<Farmer>().ClearActions();
     }
     
     public void UnsetTools () {
