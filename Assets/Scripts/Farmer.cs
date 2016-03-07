@@ -18,6 +18,8 @@ public class Farmer : MonoBehaviour {
     }
     FarmerAction currentAction;
 
+    SpriteRenderer rend;
+
 	private Vector2 startPos;
 	private Vector2 target;
     LinkedList<FarmerAction> actions = new LinkedList<FarmerAction>();
@@ -44,6 +46,7 @@ public class Farmer : MonoBehaviour {
 		state = FarmerState.Idle;
         CameraLookPos = transform.position;
         toolbar = FindObjectOfType<Toolbar>();
+        rend = GetComponentInChildren<SpriteRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -102,6 +105,7 @@ public class Farmer : MonoBehaviour {
 
         float moveDistance = Vector2.Distance(transform.position, target);
         moveDuration = moveDistance / moveSpeed;
+        rend.flipX = (target.x > transform.position.x);
     }
 
     public void ClearActions () {

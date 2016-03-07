@@ -36,6 +36,13 @@ public class Toolbar : MonoBehaviour {
         };
     }
 
+    void Update () {
+        if (!CanAffordAction(ToolMode)) {
+            ToolMode = FarmerActionType.Move;
+            UpdateButtonSprites();
+        }
+    }
+
     void LateUpdate () {
         BlockOtherClicks = false;
     }
