@@ -68,14 +68,14 @@ public class Pig : MonoBehaviour {
 		yield return new WaitForSeconds(delay);
         TargetGrassIfHungry();
         if (targetObj == null) {
-            target = Map.inst.Bound(Random.insideUnitCircle * jumpRange
+            target = Map.Inst.Bound(Random.insideUnitCircle * jumpRange
                     + (Vector2)transform.position);
         } else {
             Vector3 vecToTarget = targetObj.transform.position
                     - transform.position;
             vecToTarget = Vector3.ClampMagnitude(vecToTarget, jumpRange);
             vecToTarget += Random.insideUnitSphere * jumpRange * 0.1f;
-            target = Map.inst.Bound(transform.position + vecToTarget);
+            target = Map.Inst.Bound(transform.position + vecToTarget);
         }
 
 		startPos = transform.position;

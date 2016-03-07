@@ -8,7 +8,7 @@ public class Map : MonoBehaviour {
 	private static Rect bounds = new Rect (-1.31f, -0.74f, 2.218f, 1.386f);
 
     static Map _inst;
-    public static Map inst {
+    public static Map Inst {
         get {
             if (_inst == null) {
                 _inst = FindObjectOfType<Map>();

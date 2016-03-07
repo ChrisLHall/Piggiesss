@@ -88,12 +88,26 @@ public class Toolbar : MonoBehaviour {
                 farmer.transform.position.y, 0f);
     }
 
-    public bool CanAffordAction(FarmerActionType action) {
+    public bool CanAffordAction(FarmerActionType action,
+            ICollection<Farmer.FarmerAction> includedPendingActions = null,
+            Farmer.FarmerAction includedCurrentAction = null) {
         if (!actionCostDict.ContainsKey(action)) {
             return true;
         }
 
+        int pendingCost = 0;
+        if (includedPendingActions != null) {
+            foreach (Farmer.FarmerAction actionPair in includedPendingActions) {
+                if (actionCostDict.ContainsKey(actionPair.type)) {
+                    pendingCost += actionCostDict[actionPair.type];
+                }
+            }
+        }
+        if (includedCurrentAction != null
+                && actionCostDict.ContainsKey(includedCurrentAction.type)) {
+            pendingCost += actionCostDict[includedCurrentAction.type];
+        }
         PoopTracker pt = FindObjectOfType<PoopTracker>();
-        return pt.amount >= actionCostDict[action];
+        return pt.amount >= actionCostDict[action] + pendingCost;
     }
 }

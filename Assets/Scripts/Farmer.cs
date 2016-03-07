@@ -12,7 +12,7 @@ public enum FarmerActionType {
 
 public class Farmer : MonoBehaviour {
     [System.Serializable]
-    class FarmerAction {
+    public class FarmerAction {
         public FarmerActionType type;
         public Vector2 target;
     }
@@ -48,8 +48,10 @@ public class Farmer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonDown(0) && !toolbar.BlockOtherClicks) {
-            Vector2 point = Map.inst.Bound(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+		if (Input.GetMouseButtonDown(0)
+                && !toolbar.BlockOtherClicks
+                && toolbar.CanAffordAction(toolbar.ToolMode, actions, currentAction)) {
+            Vector2 point = Map.Inst.Bound(Camera.main.ScreenToWorldPoint(Input.mousePosition));
             if (toolbar.ToolMode == FarmerActionType.Move) {
                 ClearActions();
             }
@@ -70,16 +72,15 @@ public class Farmer : MonoBehaviour {
                             transform.position);
                 }
                 state = FarmerState.Idle;
+                SetMarkers();
 			}
 		}
-
-        foreach (FarmerAction action in actions) {
-            Debug.DrawLine(action.target, action.target + new Vector2(0f, 0.1f), Color.magenta);
-        }
 	}
 
     void DequeueAction () {
         if (actions.Count == 0) {
+            currentAction = null;
+            SetMarkers();
             return;
         }
         currentAction = actions.First.Value;
@@ -90,7 +91,8 @@ public class Farmer : MonoBehaviour {
             DequeueAction();
             return;
         }
-        
+
+        SetMarkers();
         target = currentAction.target;
         startPos = transform.position;
         Debug.DrawLine(startPos, target, Color.blue, 0.1f);
@@ -104,6 +106,7 @@ public class Farmer : MonoBehaviour {
 
     public void ClearActions () {
         actions.Clear();
+        SetMarkers();
         state = FarmerState.Idle;
     }
 
@@ -115,6 +118,12 @@ public class Farmer : MonoBehaviour {
         };
 
         actions.AddLast(newAction);
+
+        SetMarkers();
+    }
+
+    void SetMarkers () {
+        MarkerMgr.Inst.ChangeArrowsList(actions, currentAction);
     }
 
     void OnTriggerStay2D (Collider2D other) {

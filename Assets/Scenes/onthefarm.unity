@@ -706,6 +706,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1821923802}
   - 114: {fileID: 1821923803}
+  - 114: {fileID: 1821923804}
   m_Layer: 0
   m_Name: Toolbar
   m_TagString: Untagged
@@ -744,6 +745,18 @@ MonoBehaviour:
   pigButton: {fileID: 215522396}
   grassPrefab: {fileID: 147322, guid: 2cc32d0877cd3bd4b9cef7be87aa9010, type: 2}
   pigPrefab: {fileID: 140760, guid: b115a31968cf6489c94c52fd9b0a53d9, type: 2}
+--- !u!114 &1821923804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1821923801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41c945db9b9f99848b39c46dec5a5318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  markerArrowPrefab: {fileID: 146528, guid: 54eb5966f686476468492806ee76e195, type: 2}
 --- !u!1 &1994584778
 GameObject:
   m_ObjectHideFlags: 0
