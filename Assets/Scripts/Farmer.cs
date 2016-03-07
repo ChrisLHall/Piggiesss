@@ -133,7 +133,7 @@ public class Farmer : MonoBehaviour {
     void OnTriggerStay2D (Collider2D other) {
         if (other.name.StartsWith("poop")) {
             Destroy(other.gameObject);
-            FindObjectOfType<PoopTracker>().poopChange(1);
+            FindObjectOfType<Counter>().poopChange(1);
         }
     }
 }

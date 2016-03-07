@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f6396fd98bc44814ea7a323a3ad32050
-timeCreated: 1456289306
+timeCreated: 1457346250
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -14,6 +14,11 @@ TextureImporter:
     21300014: yellowfont_7
     21300016: yellowfont_8
     21300018: yellowfont_9
+    21300020: yellowfont_S
+    21300022: yellowfont_C
+    21300024: yellowfont_O
+    21300026: yellowfont_R
+    21300028: yellowfont_E
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -163,6 +168,61 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 200
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: yellowfont_S
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: yellowfont_C
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: yellowfont_O
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: yellowfont_R
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: yellowfont_E
+      rect:
+        serializedVersion: 2
+        x: 296
         y: 0
         width: 8
         height: 8

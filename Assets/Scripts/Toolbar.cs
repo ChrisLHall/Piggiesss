@@ -80,7 +80,7 @@ public class Toolbar : MonoBehaviour {
             return;
         }
         if (actionCostDict.ContainsKey(action)) {
-            PoopTracker pt = FindObjectOfType<PoopTracker>();
+            Counter pt = FindObjectOfType<Counter>();
             if (pt.amount < actionCostDict[action]) {
                 FindObjectOfType<Farmer>().ClearActions();
                 return;
@@ -114,7 +114,7 @@ public class Toolbar : MonoBehaviour {
                 && actionCostDict.ContainsKey(includedCurrentAction.type)) {
             pendingCost += actionCostDict[includedCurrentAction.type];
         }
-        PoopTracker pt = FindObjectOfType<PoopTracker>();
+        Counter pt = FindObjectOfType<Counter>();
         return pt.amount >= actionCostDict[action] + pendingCost;
     }
 }

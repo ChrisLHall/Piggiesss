@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System;
 
-public class PoopTracker : MonoBehaviour {
+public class Counter : MonoBehaviour {
 
     const int MAX = 999999;
 
@@ -41,7 +41,7 @@ public class PoopTracker : MonoBehaviour {
 
             // Set position.
             newDigit.transform.localPosition = newPosition;
-            newPosition.x += .08f;
+            newPosition.x += .05f;
 
             // Set sprite's number value.
             Digit script = newDigit.GetComponent<Digit>();
