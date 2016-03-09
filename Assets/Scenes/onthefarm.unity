@@ -246,6 +246,10 @@ Prefab:
       propertyPath: m_Name
       value: Pig (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 11460698, guid: b115a31968cf6489c94c52fd9b0a53d9, type: 2}
+      propertyPath: infectious
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b115a31968cf6489c94c52fd9b0a53d9, type: 2}
   m_IsPrefabParent: 0
@@ -552,8 +556,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85b0acc2dca91345b814d2d454ee93f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabledSprite: {fileID: 21300008, guid: 26692dfff28251344b3a194a420be81b, type: 3}
-  disabledSprite: {fileID: 21300000, guid: 26692dfff28251344b3a194a420be81b, type: 3}
+  enabledSprite: {fileID: 21300006, guid: 26692dfff28251344b3a194a420be81b, type: 3}
+  disabledSprite: {fileID: 21300012, guid: 26692dfff28251344b3a194a420be81b, type: 3}
 --- !u!61 &651667854
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -736,8 +740,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 80}
+  m_AnchoredPosition: {x: -3.5, y: -27.5}
+  m_SizeDelta: {x: 77.2, y: 25.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &770026116
 MonoBehaviour:
@@ -1303,7 +1307,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 23.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1728990710
@@ -1557,8 +1561,10 @@ MonoBehaviour:
   poopCounter: {fileID: 1751364569}
   grassButton: {fileID: 1304970419}
   pigButton: {fileID: 215522396}
+  cureButton: {fileID: 651667853}
   grassPrefab: {fileID: 147322, guid: 2cc32d0877cd3bd4b9cef7be87aa9010, type: 2}
   pigPrefab: {fileID: 140760, guid: b115a31968cf6489c94c52fd9b0a53d9, type: 2}
+  curePrefab: {fileID: 130476, guid: 1b569f4135557bf459feb505935bb79d, type: 2}
 --- !u!114 &1821923804
 MonoBehaviour:
   m_ObjectHideFlags: 0

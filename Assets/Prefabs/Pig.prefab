@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f517885fdcd854a56b2c4edc2549ef4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites:
+  regSprites:
   - leftSprite: {fileID: 21300000, guid: 58b82bc4229f87b4fa2b7580660b1989, type: 3}
     rightSprite: {fileID: 21300010, guid: 58b82bc4229f87b4fa2b7580660b1989, type: 3}
   - leftSprite: {fileID: 21300002, guid: 58b82bc4229f87b4fa2b7580660b1989, type: 3}
@@ -112,6 +112,28 @@ MonoBehaviour:
     rightSprite: {fileID: 21300016, guid: 58b82bc4229f87b4fa2b7580660b1989, type: 3}
   - leftSprite: {fileID: 21300008, guid: 58b82bc4229f87b4fa2b7580660b1989, type: 3}
     rightSprite: {fileID: 21300018, guid: 58b82bc4229f87b4fa2b7580660b1989, type: 3}
+  sickSprites:
+  - leftSprite: {fileID: 21300000, guid: cee70250f5e2a4cc2bc1873237f5093f, type: 3}
+    rightSprite: {fileID: 21300010, guid: cee70250f5e2a4cc2bc1873237f5093f, type: 3}
+  - leftSprite: {fileID: 21300002, guid: cee70250f5e2a4cc2bc1873237f5093f, type: 3}
+    rightSprite: {fileID: 21300012, guid: cee70250f5e2a4cc2bc1873237f5093f, type: 3}
+  - leftSprite: {fileID: 21300004, guid: cee70250f5e2a4cc2bc1873237f5093f, type: 3}
+    rightSprite: {fileID: 21300014, guid: cee70250f5e2a4cc2bc1873237f5093f, type: 3}
+  - leftSprite: {fileID: 21300006, guid: cee70250f5e2a4cc2bc1873237f5093f, type: 3}
+    rightSprite: {fileID: 21300016, guid: cee70250f5e2a4cc2bc1873237f5093f, type: 3}
+  - leftSprite: {fileID: 21300008, guid: cee70250f5e2a4cc2bc1873237f5093f, type: 3}
+    rightSprite: {fileID: 21300018, guid: cee70250f5e2a4cc2bc1873237f5093f, type: 3}
+  infectedSprites:
+  - leftSprite: {fileID: 21300000, guid: ad9309f44e18c3740ab43b2f532c75f1, type: 3}
+    rightSprite: {fileID: 21300010, guid: ad9309f44e18c3740ab43b2f532c75f1, type: 3}
+  - leftSprite: {fileID: 21300002, guid: ad9309f44e18c3740ab43b2f532c75f1, type: 3}
+    rightSprite: {fileID: 21300012, guid: ad9309f44e18c3740ab43b2f532c75f1, type: 3}
+  - leftSprite: {fileID: 21300004, guid: ad9309f44e18c3740ab43b2f532c75f1, type: 3}
+    rightSprite: {fileID: 21300014, guid: ad9309f44e18c3740ab43b2f532c75f1, type: 3}
+  - leftSprite: {fileID: 21300006, guid: ad9309f44e18c3740ab43b2f532c75f1, type: 3}
+    rightSprite: {fileID: 21300016, guid: ad9309f44e18c3740ab43b2f532c75f1, type: 3}
+  - leftSprite: {fileID: 21300008, guid: ad9309f44e18c3740ab43b2f532c75f1, type: 3}
+    rightSprite: {fileID: 21300018, guid: ad9309f44e18c3740ab43b2f532c75f1, type: 3}
   poopPrefab: {fileID: 168250, guid: 8bf8a01138cee31469f00693b68eda94, type: 2}
   deadPrefab: {fileID: 185092, guid: 5f431b9c6a9291f47a275fd311484864, type: 2}
 --- !u!212 &21205552
@@ -152,6 +174,18 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: regSprites.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: sickSprites.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: infectedSprites.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
@@ -179,6 +213,156 @@ Prefab:
       propertyPath: deadPrefab
       value: 
       objectReference: {fileID: 185092, guid: 5f431b9c6a9291f47a275fd311484864, type: 2}
+    - target: {fileID: 0}
+      propertyPath: regSprites.Array.data[0].leftSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 58b82bc4229f87b4fa2b7580660b1989,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: regSprites.Array.data[1].leftSprite
+      value: 
+      objectReference: {fileID: 21300002, guid: 58b82bc4229f87b4fa2b7580660b1989,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: regSprites.Array.data[2].leftSprite
+      value: 
+      objectReference: {fileID: 21300004, guid: 58b82bc4229f87b4fa2b7580660b1989,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: regSprites.Array.data[3].leftSprite
+      value: 
+      objectReference: {fileID: 21300006, guid: 58b82bc4229f87b4fa2b7580660b1989,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: regSprites.Array.data[4].leftSprite
+      value: 
+      objectReference: {fileID: 21300008, guid: 58b82bc4229f87b4fa2b7580660b1989,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: regSprites.Array.data[0].rightSprite
+      value: 
+      objectReference: {fileID: 21300010, guid: 58b82bc4229f87b4fa2b7580660b1989,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: regSprites.Array.data[1].rightSprite
+      value: 
+      objectReference: {fileID: 21300012, guid: 58b82bc4229f87b4fa2b7580660b1989,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: regSprites.Array.data[2].rightSprite
+      value: 
+      objectReference: {fileID: 21300014, guid: 58b82bc4229f87b4fa2b7580660b1989,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: regSprites.Array.data[3].rightSprite
+      value: 
+      objectReference: {fileID: 21300016, guid: 58b82bc4229f87b4fa2b7580660b1989,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: regSprites.Array.data[4].rightSprite
+      value: 
+      objectReference: {fileID: 21300018, guid: 58b82bc4229f87b4fa2b7580660b1989,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sickSprites.Array.data[0].leftSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cee70250f5e2a4cc2bc1873237f5093f,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sickSprites.Array.data[1].leftSprite
+      value: 
+      objectReference: {fileID: 21300002, guid: cee70250f5e2a4cc2bc1873237f5093f,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sickSprites.Array.data[2].leftSprite
+      value: 
+      objectReference: {fileID: 21300004, guid: cee70250f5e2a4cc2bc1873237f5093f,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sickSprites.Array.data[3].leftSprite
+      value: 
+      objectReference: {fileID: 21300006, guid: cee70250f5e2a4cc2bc1873237f5093f,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sickSprites.Array.data[4].leftSprite
+      value: 
+      objectReference: {fileID: 21300008, guid: cee70250f5e2a4cc2bc1873237f5093f,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sickSprites.Array.data[0].rightSprite
+      value: 
+      objectReference: {fileID: 21300010, guid: cee70250f5e2a4cc2bc1873237f5093f,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sickSprites.Array.data[1].rightSprite
+      value: 
+      objectReference: {fileID: 21300012, guid: cee70250f5e2a4cc2bc1873237f5093f,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sickSprites.Array.data[2].rightSprite
+      value: 
+      objectReference: {fileID: 21300014, guid: cee70250f5e2a4cc2bc1873237f5093f,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sickSprites.Array.data[3].rightSprite
+      value: 
+      objectReference: {fileID: 21300016, guid: cee70250f5e2a4cc2bc1873237f5093f,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sickSprites.Array.data[4].rightSprite
+      value: 
+      objectReference: {fileID: 21300018, guid: cee70250f5e2a4cc2bc1873237f5093f,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: infectedSprites.Array.data[0].leftSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ad9309f44e18c3740ab43b2f532c75f1,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: infectedSprites.Array.data[1].leftSprite
+      value: 
+      objectReference: {fileID: 21300002, guid: ad9309f44e18c3740ab43b2f532c75f1,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: infectedSprites.Array.data[2].leftSprite
+      value: 
+      objectReference: {fileID: 21300004, guid: ad9309f44e18c3740ab43b2f532c75f1,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: infectedSprites.Array.data[3].leftSprite
+      value: 
+      objectReference: {fileID: 21300006, guid: ad9309f44e18c3740ab43b2f532c75f1,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: infectedSprites.Array.data[4].leftSprite
+      value: 
+      objectReference: {fileID: 21300008, guid: ad9309f44e18c3740ab43b2f532c75f1,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: infectedSprites.Array.data[0].rightSprite
+      value: 
+      objectReference: {fileID: 21300010, guid: ad9309f44e18c3740ab43b2f532c75f1,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: infectedSprites.Array.data[1].rightSprite
+      value: 
+      objectReference: {fileID: 21300012, guid: ad9309f44e18c3740ab43b2f532c75f1,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: infectedSprites.Array.data[2].rightSprite
+      value: 
+      objectReference: {fileID: 21300014, guid: ad9309f44e18c3740ab43b2f532c75f1,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: infectedSprites.Array.data[3].rightSprite
+      value: 
+      objectReference: {fileID: 21300016, guid: ad9309f44e18c3740ab43b2f532c75f1,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: infectedSprites.Array.data[4].rightSprite
+      value: 
+      objectReference: {fileID: 21300018, guid: ad9309f44e18c3740ab43b2f532c75f1,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 140760}

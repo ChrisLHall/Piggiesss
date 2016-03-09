@@ -13,13 +13,16 @@ public class Toolbar : MonoBehaviour {
 
     public ToolbarButton grassButton;
     public ToolbarButton pigButton;
+    public ToolbarButton cureButton;
 
     public GameObject grassPrefab;
     public GameObject pigPrefab;
+    public GameObject curePrefab;
     Dictionary<FarmerActionType, GameObject> prefabDict;
     Dictionary<FarmerActionType, int> actionCostDict = new Dictionary<FarmerActionType, int> {
         { FarmerActionType.Grass, 1 },
-        { FarmerActionType.Pig, 5 }
+        { FarmerActionType.Pig, 5 },
+        { FarmerActionType.Cure, 1 }
     };
 
     public bool BlockOtherClicks { get; private set; }
@@ -35,7 +38,8 @@ public class Toolbar : MonoBehaviour {
     void InitPrefabDict () {
         prefabDict = new Dictionary<FarmerActionType, GameObject> {
             { FarmerActionType.Grass, grassPrefab },
-            { FarmerActionType.Pig, pigPrefab }
+            { FarmerActionType.Pig, pigPrefab },
+            { FarmerActionType.Cure, curePrefab }
         };
     }
 
@@ -57,6 +61,9 @@ public class Toolbar : MonoBehaviour {
         } else if (button == pigButton) {
             ToolMode = (ToolMode == FarmerActionType.Pig)
                     ? FarmerActionType.Move : FarmerActionType.Pig;
+        } else if (button == cureButton) {
+            ToolMode = (ToolMode == FarmerActionType.Cure)
+                    ? FarmerActionType.Move : FarmerActionType.Cure;
         }
         UpdateButtonSprites();
 
@@ -71,10 +78,13 @@ public class Toolbar : MonoBehaviour {
     void UpdateButtonSprites () {
         grassButton.SetHighlight(false);
         pigButton.SetHighlight(false);
+        cureButton.SetHighlight(false);
         if (ToolMode == FarmerActionType.Grass) {
             grassButton.SetHighlight(true);
         } else if (ToolMode == FarmerActionType.Pig) {
             pigButton.SetHighlight(true);
+        } else if (ToolMode == FarmerActionType.Cure) {
+            cureButton.SetHighlight(true);
         }
     }
     

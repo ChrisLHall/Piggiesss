@@ -71,6 +71,7 @@ MonoBehaviour:
   moveMarker: {fileID: 21300002, guid: 70962382c01e8f341a87f654901029c2, type: 3}
   grassMarker: {fileID: 21300006, guid: 70962382c01e8f341a87f654901029c2, type: 3}
   pigMarker: {fileID: 21300004, guid: 70962382c01e8f341a87f654901029c2, type: 3}
+  cureMarker: {fileID: 21300008, guid: 70962382c01e8f341a87f654901029c2, type: 3}
 --- !u!212 &21289478
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -107,7 +108,12 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: cureMarker
+      value: 
+      objectReference: {fileID: 21300008, guid: 70962382c01e8f341a87f654901029c2,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 146528}

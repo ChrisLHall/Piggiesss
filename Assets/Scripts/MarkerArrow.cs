@@ -6,6 +6,7 @@ public class MarkerArrow : MonoBehaviour {
     public Sprite moveMarker;
     public Sprite grassMarker;
     public Sprite pigMarker;
+    public Sprite cureMarker;
 
     Dictionary<FarmerActionType, Sprite> actionSprites;
 
@@ -21,7 +22,8 @@ public class MarkerArrow : MonoBehaviour {
         actionSprites = new Dictionary<FarmerActionType, Sprite> {
             { FarmerActionType.Move, moveMarker },
             { FarmerActionType.Grass, grassMarker },
-            { FarmerActionType.Pig, pigMarker }
+            { FarmerActionType.Pig, pigMarker },
+            { FarmerActionType.Cure, cureMarker }
         };
     }
 	

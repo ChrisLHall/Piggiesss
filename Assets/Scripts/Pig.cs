@@ -4,11 +4,21 @@ using System.Linq;
 
 public class Pig : MonoBehaviour {
 
-	public LeftRightSprite[] sprites;
+	public LeftRightSprite[] regSprites;
+    public LeftRightSprite[] sickSprites;
+    public LeftRightSprite[] infectedSprites;
+    LeftRightSprite[] sprites;
     readonly int[] GRASS_PER_AGE = new int[] { 3, 9, 20 };
 	private int sprite;
     bool left;
 	SpriteRenderer sr;
+
+    const float SICK_TIME = 10f;
+    Coroutine sickRoutine;
+    public bool infectious;
+    bool sick;
+    int infections;
+    const int INFECTIONS_TO_DIE = 2;
 
 	/* Configuration:
 	 * meanMoveDelay - the average amount of time in seconds between jumps
@@ -51,10 +61,13 @@ public class Pig : MonoBehaviour {
     public GameObject deadPrefab;
 
     void Awake () {
+        sprites = regSprites;
         left = true;
         poopLeft = POOPS_PER_GRASS;
         grassEaten = 0;
         targetObj = null;
+        infections = 0;
+        sick = false;
     }
 
 	// Use this for initialization
@@ -66,12 +79,17 @@ public class Pig : MonoBehaviour {
 		ScheduleJump();
         poopCoroutine = StartCoroutine(PoopSometimes());
         starveCoroutine = StartCoroutine(Starve());
-	}
+        
+        if (infectious) {
+            sprites = infectedSprites;
+            UpdateSprite();
+        }
+    }
 
 	private void ScheduleJump() {
         float timeDelay = Random.Range(meanMoveDelay - devMoveDelay,
                 meanMoveDelay + devMoveDelay);
-        if (Hungry) {
+        if (Hungry && !infectious) {
             timeDelay *= hungerDelayReduction;
         }
 		StartCoroutine(JumpWithDelay(timeDelay));
@@ -82,7 +100,12 @@ public class Pig : MonoBehaviour {
 	 */
 	IEnumerator JumpWithDelay(float delay) {
 		yield return new WaitForSeconds(delay);
-        TargetGrassIfHungry();
+        targetObj = null;
+        if (infectious) {
+            TargetCleanPig();
+        } else {
+            TargetGrassIfHungry();
+        }
         if (targetObj == null) {
             target = Map.Inst.Bound(Random.insideUnitCircle * jumpRange
                     + (Vector2)transform.position);
@@ -97,22 +120,27 @@ public class Pig : MonoBehaviour {
 		startPos = transform.position;
 		if (target.x > transform.position.x) {
             left = false;
-			sr.sprite = sprites[sprite].rightSprite;
 		} else {
             left = true;
-			sr.sprite = sprites[sprite].leftSprite;
 		}
+        UpdateSprite();
 		state = PigState.Jumping;
 		jumpStartTime = Time.time;
 	}
+
+    void UpdateSprite () {
+        sr.sprite = left ? sprites[sprite].leftSprite : sprites[sprite].rightSprite;
+    }
 
     IEnumerator PoopSometimes () {
         for (;;) {
             while (poopLeft > 0) {
                 yield return new WaitForSeconds(POOP_DELAY + (-0.5f + Random.value)
                         * POOP_DELAY_RAND);
-                Poop();
-                poopLeft--;
+                if (!infectious) {
+                    Poop();
+                    poopLeft--;
+                }
             }
             while (poopLeft <= 0) {
                 yield return new WaitForSeconds(0.2f);
@@ -140,10 +168,18 @@ public class Pig : MonoBehaviour {
 
     IEnumerator Starve () {
         yield return new WaitForSeconds(STARVE_TIME + Random.value * 3f);
+        Die(false, false);
+    }
+
+    public void Die (bool isSkeleton, bool cleanSkeleton) {
         Destroy(gameObject);
-        GameObject dead = Instantiate(deadPrefab);
+        DeadPig dead = Instantiate(deadPrefab).GetComponent<DeadPig>();
         dead.transform.position = transform.position;
-        dead.GetComponent<DeadPig>().SetSprites(sprite, left);
+        if (!isSkeleton) {
+            dead.SetSprites(sprite, left);
+        } else {
+            dead.SetSkeleton(cleanSkeleton);
+        }
     }
 
     void TargetGrassIfHungry () {
@@ -162,9 +198,51 @@ public class Pig : MonoBehaviour {
             }
         }
     }
-		
-	// Update is called once per frame
-	void Update () {
+
+    void TargetCleanPig () {
+        Pig[] allPigs = FindObjectsOfType<Pig>();
+        if (allPigs.Length > 0) {
+            Pig pigTarg = allPigs.OrderBy((Pig p) => {
+                if (p.sick || p.infectious || p == this) {
+                    return float.PositiveInfinity;
+                }
+                return (p.transform.position - transform.position).sqrMagnitude;
+            }).First();
+            if (!pigTarg.sick && !pigTarg.infectious && pigTarg != this) {
+                targetObj = pigTarg.gameObject;
+            }
+        }
+    }
+
+    public void MakeSick () {
+        if (sick == true) {
+            return;
+        }
+        sick = true;
+        sickRoutine = StartCoroutine(GetSick());
+    }
+
+    IEnumerator GetSick () {
+        sprites = sickSprites;
+        UpdateSprite();
+        yield return new WaitForSeconds(SICK_TIME);
+        infectious = true;
+        sprites = infectedSprites;
+        UpdateSprite();
+    }
+
+    public void Cure () {
+        sprites = regSprites;
+        UpdateSprite();
+        if (sickRoutine != null) {
+            StopCoroutine(sickRoutine);
+        }
+        infectious = false;
+        sick = false;
+    }
+
+    // Update is called once per frame
+    void Update () {
 		if (state == PigState.Jumping) {
 			float duration = Time.time - jumpStartTime;
 			float progress = duration / jumpDuration;
@@ -179,9 +257,28 @@ public class Pig : MonoBehaviour {
 
     void OnTriggerStay2D (Collider2D other) {
         Grass otherGrass = other.gameObject.GetComponent<Grass>();
-        if (otherGrass != null && otherGrass.Edible && Hungry) {
+        if (otherGrass != null && otherGrass.Edible && Hungry && !infectious) {
             Destroy(other.gameObject);
             Eat();
+        }
+        Cure otherCure = other.gameObject.GetComponent<Cure>();
+        if (otherCure != null) {
+            Cure();
+        }
+    }
+
+    void OnCollisionEnter2D (Collision2D coll) {
+        GameObject other = coll.gameObject;
+        Debug.Log("poke");
+        Pig otherPig = other.GetComponent<Pig>();
+        if (infectious && otherPig != null && !otherPig.infectious && !otherPig.sick) {
+            otherPig.MakeSick();
+            StopCoroutine(starveCoroutine);
+            starveCoroutine = StartCoroutine(Starve());
+            infections++;
+            if (infections > INFECTIONS_TO_DIE) {
+                Die(true, false);
+            }
         }
     }
 }
