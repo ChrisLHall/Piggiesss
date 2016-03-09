@@ -60,6 +60,8 @@ public class Pig : MonoBehaviour {
 
     public GameObject deadPrefab;
 
+    Coroutine randomInfectCoroutine;
+
     void Awake () {
         sprites = regSprites;
         left = true;
@@ -79,6 +81,7 @@ public class Pig : MonoBehaviour {
 		ScheduleJump();
         poopCoroutine = StartCoroutine(PoopSometimes());
         starveCoroutine = StartCoroutine(Starve());
+        randomInfectCoroutine = StartCoroutine(RandomlyInfectSometime());
         
         if (infectious) {
             sprites = infectedSprites;
@@ -168,7 +171,11 @@ public class Pig : MonoBehaviour {
 
     IEnumerator Starve () {
         yield return new WaitForSeconds(STARVE_TIME + Random.value * 3f);
-        Die(false, false);
+        if (infectious) {
+            Die(true, false);
+        } else {
+            Die(false, false);
+        }
     }
 
     public void Die (bool isSkeleton, bool cleanSkeleton) {
@@ -241,6 +248,18 @@ public class Pig : MonoBehaviour {
         sick = false;
     }
 
+    IEnumerator RandomlyInfectSometime () {
+        for (;;) {
+            yield return new WaitForSeconds(5f + Random.value * 5f);
+            float exp = 1f - Mathf.Exp(-(Time.timeSinceLevelLoad) / 120f);
+            float poopExp = 1f - Mathf.Exp(-FindObjectsOfType<Poop>().Length / 50f);
+            float threshold = (exp + poopExp) * 0.1f;
+            if (Random.value < threshold) {
+                MakeSick();
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update () {
 		if (state == PigState.Jumping) {
@@ -273,8 +292,10 @@ public class Pig : MonoBehaviour {
         Pig otherPig = other.GetComponent<Pig>();
         if (infectious && otherPig != null && !otherPig.infectious && !otherPig.sick) {
             otherPig.MakeSick();
+            /*
             StopCoroutine(starveCoroutine);
             starveCoroutine = StartCoroutine(Starve());
+            */
             infections++;
             if (infections > INFECTIONS_TO_DIE) {
                 Die(true, false);
