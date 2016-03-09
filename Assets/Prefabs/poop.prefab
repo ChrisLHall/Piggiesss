@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 430546}
   - 212: {fileID: 21219860}
   - 61: {fileID: 6192734}
+  - 114: {fileID: 11420156}
   m_Layer: 0
   m_Name: poop
   m_TagString: Untagged
@@ -43,6 +44,17 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.08, y: 0.08}
+--- !u!114 &11420156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89a15bf3fd174de468a1c28b52dd2946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21219860
 SpriteRenderer:
   m_ObjectHideFlags: 1

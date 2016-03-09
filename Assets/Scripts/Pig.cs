@@ -6,8 +6,8 @@ public class Pig : MonoBehaviour {
 
 	public LeftRightSprite[] sprites;
     readonly int[] GRASS_PER_AGE = new int[] { 3, 9, 20 };
-    const float STARVE_TIME = 30f;
 	private int sprite;
+    bool left;
 	SpriteRenderer sr;
 
 	/* Configuration:
@@ -19,7 +19,7 @@ public class Pig : MonoBehaviour {
 	 */
 	const float meanMoveDelay = 2f;
 	const float devMoveDelay = 1f;
-    const float hungerDelayReduction = 0.6f;
+    const float hungerDelayReduction = 0.4f;
 	const float jumpRange = 0.2f;
 	const float jumpDuration = 0.5f;
 	const float jumpHeight = 0.03f;
@@ -37,6 +37,9 @@ public class Pig : MonoBehaviour {
 
     public GameObject poopPrefab;
     Coroutine poopCoroutine;
+    
+    const float STARVE_TIME = 30f;
+    Coroutine starveCoroutine;
 
     int poopLeft;
     const int POOPS_PER_GRASS = 2;
@@ -45,7 +48,10 @@ public class Pig : MonoBehaviour {
 
     public bool Hungry { get { return poopLeft == 0; } }
 
+    public GameObject deadPrefab;
+
     void Awake () {
+        left = true;
         poopLeft = POOPS_PER_GRASS;
         grassEaten = 0;
         targetObj = null;
@@ -59,6 +65,7 @@ public class Pig : MonoBehaviour {
 		state = PigState.Idle;
 		ScheduleJump();
         poopCoroutine = StartCoroutine(PoopSometimes());
+        starveCoroutine = StartCoroutine(Starve());
 	}
 
 	private void ScheduleJump() {
@@ -89,8 +96,10 @@ public class Pig : MonoBehaviour {
 
 		startPos = transform.position;
 		if (target.x > transform.position.x) {
+            left = false;
 			sr.sprite = sprites[sprite].rightSprite;
 		} else {
+            left = true;
 			sr.sprite = sprites[sprite].leftSprite;
 		}
 		state = PigState.Jumping;
@@ -124,6 +133,17 @@ public class Pig : MonoBehaviour {
         if (sprite < sprites.Length - 1 && grassEaten >= GRASS_PER_AGE[sprite]) {
             sprite++;
         }
+
+        StopCoroutine(starveCoroutine);
+        starveCoroutine = StartCoroutine(Starve());
+    }
+
+    IEnumerator Starve () {
+        yield return new WaitForSeconds(STARVE_TIME + Random.value * 3f);
+        Destroy(gameObject);
+        GameObject dead = Instantiate(deadPrefab);
+        dead.transform.position = transform.position;
+        dead.GetComponent<DeadPig>().SetSprites(sprite, left);
     }
 
     void TargetGrassIfHungry () {

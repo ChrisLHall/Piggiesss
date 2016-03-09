@@ -41,16 +41,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   digits:
-  - {fileID: 21300000, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
-  - {fileID: 21300002, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
-  - {fileID: 21300004, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
-  - {fileID: 21300006, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
-  - {fileID: 21300008, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
-  - {fileID: 21300010, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
-  - {fileID: 21300012, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
-  - {fileID: 21300014, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
-  - {fileID: 21300016, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
-  - {fileID: 21300018, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
+  - {fileID: 21300040, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
+  - {fileID: 21300042, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
+  - {fileID: 21300044, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
+  - {fileID: 21300046, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
+  - {fileID: 21300048, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
+  - {fileID: 21300050, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
+  - {fileID: 21300052, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
+  - {fileID: 21300054, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
+  - {fileID: 21300056, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
+  - {fileID: 21300058, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
 --- !u!212 &21217478
 SpriteRenderer:
   m_ObjectHideFlags: 1
