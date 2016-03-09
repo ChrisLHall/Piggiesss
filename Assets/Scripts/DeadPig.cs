@@ -11,10 +11,12 @@ public class DeadPig : MonoBehaviour {
 
     bool isSkeleton;
 
+    Coroutine becomeSkeleton;
+
     void Awake () {
         rend = GetComponentInChildren<SpriteRenderer>();
         isSkeleton = false;
-        StartCoroutine(BecomeSkeleton());
+        becomeSkeleton = StartCoroutine(BecomeSkeleton());
     }
 
     IEnumerator BecomeSkeleton () {
@@ -34,5 +36,6 @@ public class DeadPig : MonoBehaviour {
         } else {
             rend.sprite = bloodSkeleton;
         }
+        StopCoroutine(becomeSkeleton);
     }
 }

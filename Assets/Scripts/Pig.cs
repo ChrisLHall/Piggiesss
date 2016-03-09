@@ -250,10 +250,10 @@ public class Pig : MonoBehaviour {
 
     IEnumerator RandomlyInfectSometime () {
         for (;;) {
-            yield return new WaitForSeconds(5f + Random.value * 5f);
-            float exp = 1f - Mathf.Exp(-(Time.timeSinceLevelLoad) / 120f);
-            float poopExp = 1f - Mathf.Exp(-FindObjectsOfType<Poop>().Length / 50f);
-            float threshold = (exp + poopExp) * 0.1f;
+            yield return new WaitForSeconds(10f + Random.value * 5f);
+            float exp = 1f - Mathf.Exp(-(Time.timeSinceLevelLoad) / 1200f);
+            float poopExp = 1f - Mathf.Exp(-FindObjectsOfType<Poop>().Length / 100f);
+            float threshold = exp * 0.5f + poopExp * 0.1f;
             if (Random.value < threshold) {
                 MakeSick();
             }
