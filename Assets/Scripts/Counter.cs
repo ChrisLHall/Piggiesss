@@ -54,7 +54,7 @@ public class Counter : MonoBehaviour {
         }
     }
 
-    public void poopChange(int count) {
+    public void ChangeCount(int count) {
         amount += count;
         updateSprite();
     }

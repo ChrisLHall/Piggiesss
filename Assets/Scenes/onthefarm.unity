@@ -269,8 +269,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 215522392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.1299999, y: 0.534958, z: 0}
-  m_LocalScale: {x: 2.1433935, y: 2.1433935, z: 1.4289291}
+  m_LocalPosition: {x: 2.36, y: 0.84, z: 0}
+  m_LocalScale: {x: 1.5190446, y: 1.5190446, z: 1.0126964}
   m_Children: []
   m_Father: {fileID: 1821923802}
   m_RootOrder: 0
@@ -309,7 +309,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 321484860}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.45, y: 1.95, z: 0}
+  m_LocalPosition: {x: 1.68, y: 1.95, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 881809370}
@@ -422,7 +422,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -123365325
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300026, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -584,7 +584,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -123365325
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300020, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -642,7 +642,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -123365325
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300024, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -700,7 +700,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -123365325
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300022, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -772,7 +772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f049220c11ef7694393fdc77688b634c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 999999
+  amount: 0
   digitsPrefab: {fileID: 171022, guid: 7424f8e9f71c9440f8fddcff0fd01db2, type: 2}
 --- !u!1 &1304970416
 GameObject:
@@ -829,8 +829,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1304970416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.1299999, y: 1.184958, z: 0}
-  m_LocalScale: {x: 2.1433935, y: 2.1433935, z: 1.4289291}
+  m_LocalPosition: {x: 2.36, y: 1.31, z: 0}
+  m_LocalScale: {x: 1.5190446, y: 1.5190446, z: 1.0126964}
   m_Children: []
   m_Father: {fileID: 1821923802}
   m_RootOrder: 1
@@ -956,7 +956,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -123365325
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300028, guid: f6396fd98bc44814ea7a323a3ad32050, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -984,7 +984,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1622173393}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.67526174, y: -0.584958, z: 1.743494}
+  m_LocalPosition: {x: -1.44, y: -0.584958, z: 1.743494}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1803191620}
@@ -1086,7 +1086,7 @@ Transform:
   m_GameObject: {fileID: 1803191618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.3452618, y: 2.2849581, z: -1.743494}
-  m_LocalScale: {x: 2.1433935, y: 2.1433935, z: 1.4289291}
+  m_LocalScale: {x: 1.0753744, y: 1.0753744, z: 0.71691626}
   m_Children: []
   m_Father: {fileID: 1622173394}
   m_RootOrder: 0
@@ -1114,7 +1114,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1821923801}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.28, y: -0.54105264, z: 10}
+  m_LocalPosition: {x: -0.53, y: -0.71, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 215522395}
@@ -1134,6 +1134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a86f195c23a0a45a4f113c369989e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreCounter: {fileID: 1234505259}
+  poopCounter: {fileID: 1751364569}
   grassButton: {fileID: 1304970419}
   pigButton: {fileID: 215522396}
   grassPrefab: {fileID: 147322, guid: 2cc32d0877cd3bd4b9cef7be87aa9010, type: 2}
@@ -1211,7 +1213,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.6
+  orthographic size: 1.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

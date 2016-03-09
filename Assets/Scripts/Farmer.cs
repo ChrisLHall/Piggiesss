@@ -41,12 +41,15 @@ public class Farmer : MonoBehaviour {
 
     public Vector3 CameraLookPos { get; private set; }
 
+    Transform graphics;
+
 	// Use this for initialization
 	void Start () {
 		state = FarmerState.Idle;
         CameraLookPos = transform.position;
         toolbar = FindObjectOfType<Toolbar>();
         rend = GetComponentInChildren<SpriteRenderer>();
+        graphics = transform.GetChild(0);
 	}
 	
 	// Update is called once per frame
@@ -67,8 +70,9 @@ public class Farmer : MonoBehaviour {
 			float duration = Time.time - moveStartTime;
 			float progress = duration / moveDuration;
 			Vector2 vertical = Vector2.up * (1f - Mathf.Pow(Mathf.Sin (Mathf.PI * progress * 3f * moveDuration), 4)) * stepHeight;
-			transform.position = Vector2.Lerp (startPos, target, duration / moveDuration) + vertical;
-            CameraLookPos = transform.position - new Vector3(vertical.x, vertical.y);
+			transform.position = Vector2.Lerp (startPos, target, duration / moveDuration);
+            graphics.transform.localPosition = vertical;
+            CameraLookPos = transform.position;
 			if (duration > moveDuration) {
                 if (currentAction.type != FarmerActionType.Move) {
                     toolbar.CreatePrefabForAction(currentAction.type,
@@ -133,7 +137,8 @@ public class Farmer : MonoBehaviour {
     void OnTriggerStay2D (Collider2D other) {
         if (other.name.StartsWith("poop")) {
             Destroy(other.gameObject);
-            FindObjectOfType<Counter>().poopChange(1);
+            FindObjectOfType<Toolbar>().poopCounter.ChangeCount(1);
+            FindObjectOfType<Toolbar>().scoreCounter.ChangeCount(1);
         }
     }
 }

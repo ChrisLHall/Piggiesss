@@ -6,6 +6,7 @@ public class Pig : MonoBehaviour {
 
 	public LeftRightSprite[] sprites;
     readonly int[] GRASS_PER_AGE = new int[] { 3, 9, 20 };
+    const float STARVE_TIME = 30f;
 	private int sprite;
 	SpriteRenderer sr;
 
@@ -18,6 +19,7 @@ public class Pig : MonoBehaviour {
 	 */
 	const float meanMoveDelay = 2f;
 	const float devMoveDelay = 1f;
+    const float hungerDelayReduction = 0.6f;
 	const float jumpRange = 0.2f;
 	const float jumpDuration = 0.5f;
 	const float jumpHeight = 0.03f;
@@ -41,6 +43,8 @@ public class Pig : MonoBehaviour {
     int grassEaten;
     GameObject targetObj;
 
+    public bool Hungry { get { return poopLeft == 0; } }
+
     void Awake () {
         poopLeft = POOPS_PER_GRASS;
         grassEaten = 0;
@@ -58,7 +62,12 @@ public class Pig : MonoBehaviour {
 	}
 
 	private void ScheduleJump() {
-		StartCoroutine(JumpWithDelay(Random.Range(meanMoveDelay - devMoveDelay, meanMoveDelay + devMoveDelay)));
+        float timeDelay = Random.Range(meanMoveDelay - devMoveDelay,
+                meanMoveDelay + devMoveDelay);
+        if (Hungry) {
+            timeDelay *= hungerDelayReduction;
+        }
+		StartCoroutine(JumpWithDelay(timeDelay));
 	}
 
 	/* Delays by a random amount
@@ -118,7 +127,7 @@ public class Pig : MonoBehaviour {
     }
 
     void TargetGrassIfHungry () {
-        if (poopLeft == 0) {
+        if (Hungry) {
             Grass[] allGrass = FindObjectsOfType<Grass>();
             if (allGrass.Length > 0) {
                 Grass grassTarg = allGrass.OrderBy((Grass g) => {
@@ -150,7 +159,7 @@ public class Pig : MonoBehaviour {
 
     void OnTriggerStay2D (Collider2D other) {
         Grass otherGrass = other.gameObject.GetComponent<Grass>();
-        if (otherGrass != null && otherGrass.Edible && poopLeft == 0) {
+        if (otherGrass != null && otherGrass.Edible && Hungry) {
             Destroy(other.gameObject);
             Eat();
         }

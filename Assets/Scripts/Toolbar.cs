@@ -8,6 +8,9 @@ public class Toolbar : MonoBehaviour {
         private set;
     }
 
+    public Counter scoreCounter;
+    public Counter poopCounter;
+
     public ToolbarButton grassButton;
     public ToolbarButton pigButton;
 
@@ -80,12 +83,12 @@ public class Toolbar : MonoBehaviour {
             return;
         }
         if (actionCostDict.ContainsKey(action)) {
-            Counter pt = FindObjectOfType<Counter>();
+            Counter pt = FindObjectOfType<Toolbar>().poopCounter;
             if (pt.amount < actionCostDict[action]) {
                 FindObjectOfType<Farmer>().ClearActions();
                 return;
             } else {
-                pt.poopChange(-actionCostDict[action]);
+                pt.ChangeCount(-actionCostDict[action]);
             }
         }
         GameObject prefab = prefabDict[action];
@@ -114,7 +117,7 @@ public class Toolbar : MonoBehaviour {
                 && actionCostDict.ContainsKey(includedCurrentAction.type)) {
             pendingCost += actionCostDict[includedCurrentAction.type];
         }
-        Counter pt = FindObjectOfType<Counter>();
+        Counter pt = FindObjectOfType<Toolbar>().poopCounter;
         return pt.amount >= actionCostDict[action] + pendingCost;
     }
 }
