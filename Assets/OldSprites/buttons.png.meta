@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 26692dfff28251344b3a194a420be81b
-timeCreated: 1456288630
-licenseType: Free
+timeCreated: 1457513522
+licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
     21300000: buttons_3
@@ -9,6 +9,8 @@ TextureImporter:
     21300004: buttons_1
     21300006: buttons_2
     21300008: buttons_0
+    21300010: buttons_4
+    21300012: buttons_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -55,51 +57,6 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: buttons_3
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 0
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -24, y: 24}
-        - {x: -24, y: -24}
-        - {x: 24, y: -24}
-        - {x: 24, y: 24}
-    - name: buttons_1
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 24
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -24, y: 24}
-        - {x: -24, y: -24}
-        - {x: 24, y: -24}
-        - {x: 24, y: 24}
-    - name: buttons_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -24, y: 24}
-        - {x: -24, y: -24}
-        - {x: 24, y: -24}
-        - {x: 24, y: 24}
     - name: buttons_0
       rect:
         serializedVersion: 2
@@ -108,13 +65,64 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -24, y: 24}
-        - {x: -24, y: -24}
-        - {x: 24, y: -24}
-        - {x: 24, y: 24}
+      outline: []
+    - name: buttons_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 24
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: buttons_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 24
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: buttons_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: buttons_4
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: buttons_5
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     outline: []
   spritePackingTag: 
   userData: 
