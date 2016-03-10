@@ -139,6 +139,7 @@ public class Farmer : MonoBehaviour {
             Destroy(other.gameObject);
             FindObjectOfType<Toolbar>().poopCounter.ChangeCount(1);
             FindObjectOfType<Toolbar>().scoreCounter.ChangeCount(1);
+            GetComponent<AudioSource>().Play();
         }
         if (other.GetComponent<DeadPig>() != null) {
             Destroy(other.gameObject);

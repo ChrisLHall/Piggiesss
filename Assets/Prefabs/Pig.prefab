@@ -100,7 +100,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: dc4624e23ebf81d4eb2b1a4c3725324d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -216,6 +216,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6c9373ee830424c498a57b3885446c7c, type: 3}
   - {fileID: 8300000, guid: ec9f6bbf4ffd98d48bdb1efbe6811fed, type: 3}
   deadPrefab: {fileID: 185092, guid: 5f431b9c6a9291f47a275fd311484864, type: 2}
+  coughs:
+  - {fileID: 8300000, guid: 5bfba3ae7c310974a8a6d9eb944fba71, type: 3}
+  - {fileID: 8300000, guid: 6e2b9e832793ce84e9dbf32e3385fb55, type: 3}
+  - {fileID: 8300000, guid: 795cc57bf2d4e854fb7403e2f7d0443d, type: 3}
 --- !u!212 &21205552
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -253,6 +257,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: coughs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: regSprites.Array.size
       value: 5
@@ -471,6 +479,26 @@ Prefab:
       propertyPath: poopSounds.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: ec9f6bbf4ffd98d48bdb1efbe6811fed, type: 3}
+    - target: {fileID: 0}
+      propertyPath: coughs.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5bfba3ae7c310974a8a6d9eb944fba71, type: 3}
+    - target: {fileID: 0}
+      propertyPath: coughs.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e2b9e832793ce84e9dbf32e3385fb55, type: 3}
+    - target: {fileID: 0}
+      propertyPath: coughs.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 795cc57bf2d4e854fb7403e2f7d0443d, type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: dc4624e23ebf81d4eb2b1a4c3725324d, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 140760}
