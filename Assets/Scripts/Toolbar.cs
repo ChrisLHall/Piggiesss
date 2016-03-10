@@ -105,7 +105,7 @@ public class Toolbar : MonoBehaviour {
         Farmer farmer = FindObjectOfType<Farmer>();
         GameObject instance = Instantiate<GameObject>(prefab);
         instance.transform.position = new Vector3(farmer.transform.position.x,
-                farmer.transform.position.y, 0f);
+                farmer.transform.position.y - 0.1f, 0f);
     }
 
     public bool CanAffordAction(FarmerActionType action,
