@@ -27,6 +27,7 @@ GameObject:
   - 114: {fileID: 11460698}
   - 61: {fileID: 6174714}
   - 50: {fileID: 5053114}
+  - 82: {fileID: 8247434}
   m_Layer: 8
   m_Name: Pig
   m_TagString: Untagged
@@ -90,6 +91,80 @@ BoxCollider2D:
   m_Offset: {x: -0.000000014901161, y: -0.049373448}
   serializedVersion: 2
   m_Size: {x: 0.101401776, y: 0.091527104}
+--- !u!82 &8247434
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140760}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &11460698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,7 +209,12 @@ MonoBehaviour:
     rightSprite: {fileID: 21300016, guid: ad9309f44e18c3740ab43b2f532c75f1, type: 3}
   - leftSprite: {fileID: 21300008, guid: ad9309f44e18c3740ab43b2f532c75f1, type: 3}
     rightSprite: {fileID: 21300018, guid: ad9309f44e18c3740ab43b2f532c75f1, type: 3}
+  infectious: 0
   poopPrefab: {fileID: 168250, guid: 8bf8a01138cee31469f00693b68eda94, type: 2}
+  poopSounds:
+  - {fileID: 8300000, guid: 1e0b811fcceaecd44a0379e9bf7fbb8c, type: 3}
+  - {fileID: 8300000, guid: 6c9373ee830424c498a57b3885446c7c, type: 3}
+  - {fileID: 8300000, guid: ec9f6bbf4ffd98d48bdb1efbe6811fed, type: 3}
   deadPrefab: {fileID: 185092, guid: 5f431b9c6a9291f47a275fd311484864, type: 2}
 --- !u!212 &21205552
 SpriteRenderer:
@@ -176,6 +256,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: regSprites.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: poopSounds.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: sickSprites.Array.size
@@ -363,6 +447,30 @@ Prefab:
       value: 
       objectReference: {fileID: 21300018, guid: ad9309f44e18c3740ab43b2f532c75f1,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: panLevelCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: poopSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e0b811fcceaecd44a0379e9bf7fbb8c, type: 3}
+    - target: {fileID: 0}
+      propertyPath: poopSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6c9373ee830424c498a57b3885446c7c, type: 3}
+    - target: {fileID: 0}
+      propertyPath: poopSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: ec9f6bbf4ffd98d48bdb1efbe6811fed, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 140760}
