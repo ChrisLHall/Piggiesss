@@ -47,6 +47,7 @@ public class Pig : MonoBehaviour {
 
     public GameObject poopPrefab;
     Coroutine poopCoroutine;
+    public AudioClip[] poopSounds;
     
     const float STARVE_TIME = 30f;
     Coroutine starveCoroutine;
@@ -61,6 +62,8 @@ public class Pig : MonoBehaviour {
     public GameObject deadPrefab;
 
     Coroutine randomInfectCoroutine;
+
+    public AudioClip[] coughs;
 
     void Awake () {
         sprites = regSprites;
@@ -155,7 +158,8 @@ public class Pig : MonoBehaviour {
     void Poop () {
         GameObject newPoop = Instantiate<GameObject>(poopPrefab);
         newPoop.transform.position = transform.position;
-        Debug.Log("POOO");
+        GetComponent<AudioSource>().PlayOneShot(
+                poopSounds[Random.Range(0, poopSounds.Length)]);
     }
 
     void Eat () {
@@ -232,7 +236,11 @@ public class Pig : MonoBehaviour {
     IEnumerator GetSick () {
         sprites = sickSprites;
         UpdateSprite();
-        yield return new WaitForSeconds(SICK_TIME);
+        for (int i = 0; i < 3; i++) {
+            GetComponent<AudioSource>().PlayOneShot(
+                    coughs[Random.Range(0, coughs.Length)]);
+            yield return new WaitForSeconds(SICK_TIME / (float)3);
+        }
         infectious = true;
         sprites = infectedSprites;
         UpdateSprite();
@@ -251,7 +259,7 @@ public class Pig : MonoBehaviour {
     IEnumerator RandomlyInfectSometime () {
         for (;;) {
             yield return new WaitForSeconds(10f + Random.value * 5f);
-            float exp = 1f - Mathf.Exp(-(Time.timeSinceLevelLoad) / 1200f);
+            float exp = 1f - Mathf.Exp(-(Time.timeSinceLevelLoad) / 400f);
             float poopExp = 1f - Mathf.Exp(-FindObjectsOfType<Poop>().Length / 100f);
             float threshold = exp * 0.5f + poopExp * 0.1f;
             if (Random.value < threshold) {
@@ -288,7 +296,6 @@ public class Pig : MonoBehaviour {
 
     void OnCollisionEnter2D (Collision2D coll) {
         GameObject other = coll.gameObject;
-        Debug.Log("poke");
         Pig otherPig = other.GetComponent<Pig>();
         if (infectious && otherPig != null && !otherPig.infectious && !otherPig.sick) {
             otherPig.MakeSick();
