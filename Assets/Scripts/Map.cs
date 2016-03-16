@@ -3,8 +3,13 @@ using System.Collections;
 
 [ExecuteInEditMode]
 public class Map : MonoBehaviour {
+
+    public float MIN_GRASS_SPAWN = 3.0f;
+    public float MAX_GRASS_SPAWN = 4.0f;
+
     public Transform bottomLeft;
     public Transform topRight;
+    public GameObject grassPrefab;
 	private static Rect bounds = new Rect (-1.31f, -0.74f, 2.218f, 1.386f);
 
     static Map _inst;
@@ -15,6 +20,10 @@ public class Map : MonoBehaviour {
             }
             return _inst;
         }
+    }
+
+    void Start() {
+        StartCoroutine(RandomGrass());
     }
 
     void Update () {
@@ -31,6 +40,8 @@ public class Map : MonoBehaviour {
             Debug.DrawLine(new Vector3(bounds.xMin, bounds.yMax, 0f),
                     new Vector3(bounds.xMax, bounds.yMax, 0f));
         }
+
+        RandomGrass();
     }
 
 	/* Returns the closest vector to v within the bounds of the map */
@@ -54,5 +65,21 @@ public class Map : MonoBehaviour {
 
 		return vPrime;
 	}
+
+
+    /* Given enough time has passed, create a new grass prefab. */
+    IEnumerator RandomGrass() {
+
+        yield return new WaitForSeconds(Random.Range(MIN_GRASS_SPAWN, MAX_GRASS_SPAWN));
+
+        float randX = Random.Range(bounds.xMin, bounds.xMax);
+        float randY = Random.Range(bounds.yMin, bounds.yMax);
+
+        GameObject grass = Instantiate<GameObject>(grassPrefab);
+        grass.transform.position = new Vector3(randX, randY, 0F);
+
+        StartCoroutine(RandomGrass());
+
+    }
 
 }
