@@ -136,9 +136,10 @@ public class Farmer : MonoBehaviour {
 
     void OnTriggerStay2D (Collider2D other) {
         if (other.GetComponent<Poop>() != null) {
+            Poop poo = other.GetComponent<Poop>();
             Destroy(other.gameObject);
-            FindObjectOfType<Toolbar>().poopCounter.ChangeCount(1);
-            FindObjectOfType<Toolbar>().scoreCounter.ChangeCount(1);
+            FindObjectOfType<Toolbar>().poopCounter.ChangeCount(poo.value);
+            FindObjectOfType<Toolbar>().scoreCounter.ChangeCount(poo.value);
             GetComponent<AudioSource>().Play();
         }
         if (other.GetComponent<DeadPig>() != null) {

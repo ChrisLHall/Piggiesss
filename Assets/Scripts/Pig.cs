@@ -49,7 +49,7 @@ public class Pig : MonoBehaviour {
     Coroutine poopCoroutine;
     public AudioClip[] poopSounds;
     
-    const float STARVE_TIME = 30f;
+    const float STARVE_TIME = 10f;
     Coroutine starveCoroutine;
 
     int poopLeft;
@@ -174,7 +174,12 @@ public class Pig : MonoBehaviour {
     }
 
     IEnumerator Starve () {
-        yield return new WaitForSeconds(STARVE_TIME + Random.value * 3f);
+        if (infectious) {
+            yield return new WaitForSeconds(STARVE_TIME + Random.value * 3f);
+        } else {
+            yield return new WaitForSeconds(1000f);
+
+        }
         if (infectious) {
             Die(true, false);
         } else {
@@ -299,10 +304,8 @@ public class Pig : MonoBehaviour {
         Pig otherPig = other.GetComponent<Pig>();
         if (infectious && otherPig != null && !otherPig.infectious && !otherPig.sick) {
             otherPig.MakeSick();
-            /*
             StopCoroutine(starveCoroutine);
             starveCoroutine = StartCoroutine(Starve());
-            */
             infections++;
             if (infections > INFECTIONS_TO_DIE) {
                 Die(true, false);
