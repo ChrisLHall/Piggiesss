@@ -13,12 +13,13 @@ public class Pig : MonoBehaviour {
     bool left;
 	SpriteRenderer sr;
 
-    const float SICK_TIME = 10f;
+    const float SICK_TIME = 0f;
     Coroutine sickRoutine;
     public bool infectious;
     bool sick;
     int infections;
     const int INFECTIONS_TO_DIE = 2;
+    public bool followPigsWhenInfected = false;
 
 	/* Configuration:
 	 * meanMoveDelay - the average amount of time in seconds between jumps
@@ -49,8 +50,9 @@ public class Pig : MonoBehaviour {
     Coroutine poopCoroutine;
     public AudioClip[] poopSounds;
     
-    const float STARVE_TIME = 10f;
+    const float STARVE_TIME = 20f;
     Coroutine starveCoroutine;
+    public GameObject infectCloudPrefab;
 
     int poopLeft;
     const int POOPS_PER_GRASS = 2;
@@ -107,9 +109,9 @@ public class Pig : MonoBehaviour {
 	IEnumerator JumpWithDelay(float delay) {
 		yield return new WaitForSeconds(delay);
         targetObj = null;
-        if (infectious) {
+        if (infectious && followPigsWhenInfected) {
             TargetCleanPig();
-        } else {
+        } else if (!infectious) {
             TargetGrassIfHungry();
         }
         if (targetObj == null) {
@@ -175,15 +177,26 @@ public class Pig : MonoBehaviour {
 
     IEnumerator Starve () {
         if (infectious) {
-            yield return new WaitForSeconds(STARVE_TIME + Random.value * 3f);
+            yield return new WaitForSeconds(STARVE_TIME + Random.value * 5f);
         } else {
             yield return new WaitForSeconds(1000f);
 
         }
+        yield return StartCoroutine(Shake(0.1f, 2f));
         if (infectious) {
             Die(true, false);
+            Instantiate(infectCloudPrefab, transform.position, transform.rotation);
         } else {
             Die(false, false);
+        }
+    }
+
+    IEnumerator Shake (float maxDist, float time) {
+        Vector3 origPos = transform.position;
+        for (float t = 0f; t < time; t += 0.05f) {
+            Vector2 off = Random.insideUnitCircle;
+            transform.position = origPos + new Vector3(off.x, off.y, 0f) * maxDist * (t / time);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 
@@ -249,6 +262,8 @@ public class Pig : MonoBehaviour {
         infectious = true;
         sprites = infectedSprites;
         UpdateSprite();
+        StopCoroutine(starveCoroutine);
+        starveCoroutine = StartCoroutine(Starve());
     }
 
     public void Cure () {
@@ -293,14 +308,17 @@ public class Pig : MonoBehaviour {
             Destroy(other.gameObject);
             Eat();
         }
-        Cure otherCure = other.gameObject.GetComponent<Cure>();
+        Pop otherCure = other.gameObject.GetComponent<Pop>();
         if (otherCure != null) {
-            Cure();
+            if (otherCure.type == PopType.CURE) {
+                Cure();
+            }
         }
     }
 
     void OnCollisionEnter2D (Collision2D coll) {
         GameObject other = coll.gameObject;
+        /*
         Pig otherPig = other.GetComponent<Pig>();
         if (infectious && otherPig != null && !otherPig.infectious && !otherPig.sick) {
             otherPig.MakeSick();
@@ -310,6 +328,11 @@ public class Pig : MonoBehaviour {
             if (infections > INFECTIONS_TO_DIE) {
                 Die(true, false);
             }
+        }
+        */
+        Pop otherPop = other.GetComponent<Pop>();
+        if (!infectious && otherPop != null && otherPop.type == PopType.INFECT) {
+            MakeSick();
         }
     }
 }

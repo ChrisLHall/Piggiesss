@@ -1,8 +1,14 @@
 using UnityEngine;
 using System.Collections;
 
-public class Cure : MonoBehaviour {
+public enum PopType {
+    CURE,
+    INFECT,
+}
+
+public class Pop : MonoBehaviour {
     const float EXPIRE_TIME = 0.3f;
+    public PopType type;
     
 	// Use this for initialization
 	void Start () {

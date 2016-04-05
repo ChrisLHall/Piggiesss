@@ -210,11 +210,13 @@ MonoBehaviour:
   - leftSprite: {fileID: 21300008, guid: ad9309f44e18c3740ab43b2f532c75f1, type: 3}
     rightSprite: {fileID: 21300018, guid: ad9309f44e18c3740ab43b2f532c75f1, type: 3}
   infectious: 0
+  followPigsWhenInfected: 0
   poopPrefab: {fileID: 168250, guid: 8bf8a01138cee31469f00693b68eda94, type: 2}
   poopSounds:
   - {fileID: 8300000, guid: 1e0b811fcceaecd44a0379e9bf7fbb8c, type: 3}
   - {fileID: 8300000, guid: 6c9373ee830424c498a57b3885446c7c, type: 3}
   - {fileID: 8300000, guid: ec9f6bbf4ffd98d48bdb1efbe6811fed, type: 3}
+  infectCloudPrefab: {fileID: 168416, guid: 2275f6d2ad6e8e442b286cacfbffb0d5, type: 2}
   deadPrefab: {fileID: 185092, guid: 5f431b9c6a9291f47a275fd311484864, type: 2}
   coughs:
   - {fileID: 8300000, guid: 5bfba3ae7c310974a8a6d9eb944fba71, type: 3}
@@ -499,6 +501,10 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: dc4624e23ebf81d4eb2b1a4c3725324d, type: 3}
+    - target: {fileID: 0}
+      propertyPath: infectCloudPrefab
+      value: 
+      objectReference: {fileID: 168416, guid: 2275f6d2ad6e8e442b286cacfbffb0d5, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 140760}
