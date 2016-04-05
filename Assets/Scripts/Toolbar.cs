@@ -44,7 +44,7 @@ public class Toolbar : MonoBehaviour {
     }
 
     void Update () {
-        if (!CanAffordAction(ToolMode)) {
+        if (!CanAffordAction(ToolMode) || Input.GetKeyDown(KeyCode.Escape)) {
             ToolMode = FarmerActionType.Move;
             UpdateButtonSprites();
         }
@@ -102,10 +102,8 @@ public class Toolbar : MonoBehaviour {
             }
         }
         GameObject prefab = prefabDict[action];
-        Farmer farmer = FindObjectOfType<Farmer>();
         GameObject instance = Instantiate<GameObject>(prefab);
-        instance.transform.position = new Vector3(farmer.transform.position.x,
-                farmer.transform.position.y - 0.1f, 0f);
+        instance.transform.position = pos;
     }
 
     public bool CanAffordAction(FarmerActionType action,

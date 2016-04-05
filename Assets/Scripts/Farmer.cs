@@ -24,6 +24,8 @@ public class Farmer : MonoBehaviour {
 	private Vector2 target;
     LinkedList<FarmerAction> actions = new LinkedList<FarmerAction>();
 
+    public bool allowInstantAction = false;
+
 	public enum FarmerState { Idle, Moving };
 	private FarmerState state;
 
@@ -73,7 +75,12 @@ public class Farmer : MonoBehaviour {
 			transform.position = Vector2.Lerp (startPos, target, duration / moveDuration);
             graphics.transform.localPosition = vertical;
             CameraLookPos = transform.position;
-			if (duration > moveDuration) {
+            if (allowInstantAction && currentAction.type != FarmerActionType.Move) {
+                Debug.Log("Creating prefab");
+                toolbar.CreatePrefabForAction(currentAction.type, new Vector3(currentAction.target.x, currentAction.target.y, 0f));
+                state = FarmerState.Idle;
+                SetMarkers();
+            } else if (duration > moveDuration) {
                 if (currentAction.type != FarmerActionType.Move) {
                     toolbar.CreatePrefabForAction(currentAction.type,
                             transform.position);
@@ -106,6 +113,10 @@ public class Farmer : MonoBehaviour {
         //Debug.Log(target);
         state = FarmerState.Moving;
         moveStartTime = Time.time;
+
+        if (allowInstantAction && currentAction.type != FarmerActionType.Move) {
+            target = transform.position;
+        }
 
         float moveDistance = Vector2.Distance(transform.position, target);
         moveDuration = moveDistance / moveSpeed;
