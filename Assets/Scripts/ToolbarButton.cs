@@ -5,6 +5,8 @@ using System.Collections;
 public class ToolbarButton : MonoBehaviour {
     Toolbar toolbar;
 
+    public FarmerActionType actionType;
+
     public Sprite enabledSprite;
     public Sprite disabledSprite;
     SpriteRenderer img;

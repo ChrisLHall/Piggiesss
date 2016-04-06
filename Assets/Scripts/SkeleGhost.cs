@@ -7,7 +7,7 @@ public class SkeleGhost : MonoBehaviour {
     const float MAX_SPEED = 5f;
     Transform target;
 
-    const float DAMPING = 0.9f;
+    const float DAMPING = 0.3f;
     const float ACCEL = 2.5f;
     Vector2 vel;
 

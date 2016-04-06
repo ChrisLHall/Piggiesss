@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PooGolem : MonoBehaviour {
     Animator anim;
+    SpriteRenderer srend;
     static Vector3[] offsets = new Vector3[] {
         Vector3.up + Vector3.right,
         Vector3.down + Vector3.right,
@@ -17,10 +18,11 @@ public class PooGolem : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         anim = GetComponentInChildren<Animator>();
+        srend = GetComponentInChildren<SpriteRenderer>();
         origPos = transform.position;
         StartCoroutine(WalkInCircles());
 	}
-	
+
     IEnumerator WalkInCircles () {
         if (Random.value < 0.5f) {
             // forward loop
@@ -46,6 +48,7 @@ public class PooGolem : MonoBehaviour {
     }
 
     IEnumerator MeanderToPoint (Vector3 point, float time) {
+        srend.flipX = (point.x > transform.position.x);
         anim.SetBool("walking", true);
         while ((transform.position - point).sqrMagnitude > 0.01) {
             transform.position += Vector3.ClampMagnitude(point - transform.position, WALK_SPEED * 0.02f);

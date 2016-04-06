@@ -183,7 +183,7 @@ public class Pig : MonoBehaviour {
     void Eat () {
         poopLeft += POOPS_PER_GRASS;
         grassEaten++;
-        if (sprite < sprites.Length - 1 && grassEaten >= GRASS_PER_AGE[sprite]) {
+        if (sprite < sprites.Length - 2 && grassEaten >= GRASS_PER_AGE[sprite]) {
             sprite++;
         }
 
@@ -292,16 +292,20 @@ public class Pig : MonoBehaviour {
         if (sickRoutine != null) {
             StopCoroutine(sickRoutine);
         }
-        infectious = false;
-        sick = false;
+        if (infectious || sick) {
+            infectious = false;
+            sick = false;
+            StopCoroutine(starveCoroutine);
+            starveCoroutine = StartCoroutine(Starve());
+        }
     }
 
     IEnumerator RandomlyInfectSometime () {
         for (;;) {
             yield return new WaitForSeconds(10f + Random.value * 5f);
-            float exp = 1f - Mathf.Exp(-(Time.timeSinceLevelLoad) / 400f);
-            float poopExp = 1f - Mathf.Exp(-FindObjectsOfType<Poop>().Length / 100f);
-            float threshold = exp * 0.5f + poopExp * 0.1f;
+            float exp = 1f - Mathf.Exp(-(Time.timeSinceLevelLoad) / 600f);
+            float poopExp = 1f - Mathf.Exp(-FindObjectsOfType<Poop>().Length / 1000f);
+            float threshold = exp * 0.2f + poopExp * 0.02f;
             if (Random.value < threshold) {
                 MakeSick();
             }

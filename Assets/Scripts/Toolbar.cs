@@ -14,15 +14,21 @@ public class Toolbar : MonoBehaviour {
     public ToolbarButton grassButton;
     public ToolbarButton pigButton;
     public ToolbarButton cureButton;
+    public ToolbarButton golemButton;
+    public ToolbarButton statueButton;
 
     public GameObject grassPrefab;
     public GameObject pigPrefab;
     public GameObject curePrefab;
+    public GameObject golemPrefab;
+    public GameObject statuePrefab;
     Dictionary<FarmerActionType, GameObject> prefabDict;
     Dictionary<FarmerActionType, int> actionCostDict = new Dictionary<FarmerActionType, int> {
         { FarmerActionType.Grass, 1 },
         { FarmerActionType.Pig, 5 },
-        { FarmerActionType.Cure, 1 }
+        { FarmerActionType.Cure, 1 },
+        { FarmerActionType.PooGolem, 20 },
+        { FarmerActionType.Statue, 200 },
     };
 
     public bool BlockOtherClicks { get; private set; }
@@ -39,7 +45,9 @@ public class Toolbar : MonoBehaviour {
         prefabDict = new Dictionary<FarmerActionType, GameObject> {
             { FarmerActionType.Grass, grassPrefab },
             { FarmerActionType.Pig, pigPrefab },
-            { FarmerActionType.Cure, curePrefab }
+            { FarmerActionType.Cure, curePrefab },
+            { FarmerActionType.PooGolem, golemPrefab },
+            { FarmerActionType.Statue, statuePrefab },
         };
     }
 
@@ -55,16 +63,7 @@ public class Toolbar : MonoBehaviour {
     }
 	
     public void Clicked (ToolbarButton button) {
-        if (button == grassButton) {
-            ToolMode = (ToolMode == FarmerActionType.Grass)
-                    ? FarmerActionType.Move : FarmerActionType.Grass;
-        } else if (button == pigButton) {
-            ToolMode = (ToolMode == FarmerActionType.Pig)
-                    ? FarmerActionType.Move : FarmerActionType.Pig;
-        } else if (button == cureButton) {
-            ToolMode = (ToolMode == FarmerActionType.Cure)
-                    ? FarmerActionType.Move : FarmerActionType.Cure;
-        }
+        ToolMode = (ToolMode == button.actionType) ? FarmerActionType.Move : button.actionType;
         UpdateButtonSprites();
 
         BlockOtherClicks = true;
@@ -79,12 +78,18 @@ public class Toolbar : MonoBehaviour {
         grassButton.SetHighlight(false);
         pigButton.SetHighlight(false);
         cureButton.SetHighlight(false);
+        golemButton.SetHighlight(false);
+        statueButton.SetHighlight(false);
         if (ToolMode == FarmerActionType.Grass) {
             grassButton.SetHighlight(true);
         } else if (ToolMode == FarmerActionType.Pig) {
             pigButton.SetHighlight(true);
         } else if (ToolMode == FarmerActionType.Cure) {
             cureButton.SetHighlight(true);
+        } else if (ToolMode == FarmerActionType.PooGolem) {
+            golemButton.SetHighlight(true);
+        } else if (ToolMode == FarmerActionType.Statue) {
+            statueButton.SetHighlight(true);
         }
     }
     

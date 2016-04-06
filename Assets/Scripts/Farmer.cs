@@ -7,7 +7,9 @@ public enum FarmerActionType {
     Clean,
     Grass,
     Pig,
-    Cure
+    Cure,
+    PooGolem,
+    Statue,
 }
 
 public class Farmer : MonoBehaviour {
@@ -119,7 +121,7 @@ public class Farmer : MonoBehaviour {
         }
 
         float moveDistance = Vector2.Distance(transform.position, target);
-        moveDuration = moveDistance / moveSpeed;
+        moveDuration = Mathf.Max(moveDistance / moveSpeed, 0.01f);
         rend.flipX = (target.x > transform.position.x);
     }
 
