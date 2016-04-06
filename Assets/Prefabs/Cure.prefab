@@ -45,7 +45,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.4}
+  m_Size: {x: 0.6, y: 0.6}
 --- !u!82 &8261810
 AudioSource:
   m_ObjectHideFlags: 1
@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5d5052c896ca441a46356c8f8ed6ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
 --- !u!198 &19816476
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1706,6 +1707,14 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: db45b869218ed0c49b3c85e9e5f99daf, type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.y
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 130476}

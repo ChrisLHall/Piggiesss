@@ -25,6 +25,8 @@ public class YouLose : MonoBehaviour {
         for (;;) {
             yield return new WaitForSeconds(0.5f);
             int pigs = FindObjectsOfType<Pig>().Length;
+            // TODO REMOVE
+            pigs = 1;
             if (pigs == 0) {
                 foreach (Poop poo in FindObjectsOfType<Poop>()) {
                     Destroy(poo.gameObject);

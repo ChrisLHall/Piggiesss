@@ -32,7 +32,8 @@ public class Pig : MonoBehaviour {
 	const float devMoveDelay = 1f;
     const float hungerDelayReduction = 0.4f;
 	const float jumpRange = 0.2f;
-	const float jumpDuration = 0.5f;
+    const float JUMP_DUR = 0.5f;
+	float jumpDuration;
 	const float jumpHeight = 0.03f;
 
     const float POOP_DELAY = 3f;
@@ -61,6 +62,14 @@ public class Pig : MonoBehaviour {
 
     public bool Hungry { get { return poopLeft == 0; } }
 
+    public SkeleGhost ScaredOf { get; private set; }
+    public bool Scared {
+        get {
+            return ScaredOf != null && Vector3.Distance(transform.position, ScaredOf.transform.position) < 0.7f;
+        }
+    }
+    const float scaredDelayReduction = 0.1f;
+
     public GameObject deadPrefab;
 
     Coroutine randomInfectCoroutine;
@@ -68,6 +77,7 @@ public class Pig : MonoBehaviour {
     public AudioClip[] coughs;
 
     void Awake () {
+        jumpDuration = JUMP_DUR;
         sprites = regSprites;
         left = true;
         poopLeft = POOPS_PER_GRASS;
@@ -97,7 +107,9 @@ public class Pig : MonoBehaviour {
 	private void ScheduleJump() {
         float timeDelay = Random.Range(meanMoveDelay - devMoveDelay,
                 meanMoveDelay + devMoveDelay);
-        if (Hungry && !infectious) {
+        if (Scared && !infectious) {
+            timeDelay *= scaredDelayReduction;
+        } else if (Hungry && !infectious) {
             timeDelay *= hungerDelayReduction;
         }
 		StartCoroutine(JumpWithDelay(timeDelay));
@@ -108,9 +120,12 @@ public class Pig : MonoBehaviour {
 	 */
 	IEnumerator JumpWithDelay(float delay) {
 		yield return new WaitForSeconds(delay);
+        jumpDuration = (Scared) ? JUMP_DUR / 3f : JUMP_DUR;
         targetObj = null;
         if (infectious && followPigsWhenInfected) {
             TargetCleanPig();
+        } else if (!infectious && Scared) {
+            RunAway();
         } else if (!infectious) {
             TargetGrassIfHungry();
         }
@@ -121,7 +136,8 @@ public class Pig : MonoBehaviour {
             Vector3 vecToTarget = targetObj.transform.position
                     - transform.position;
             vecToTarget = Vector3.ClampMagnitude(vecToTarget, jumpRange);
-            vecToTarget += Random.insideUnitSphere * jumpRange * 0.1f;
+            float extra = (Scared) ? 0.7f : 0.1f;
+            vecToTarget += Random.insideUnitSphere * jumpRange * extra;
             target = Map.Inst.Bound(transform.position + vecToTarget);
         }
 
@@ -243,6 +259,10 @@ public class Pig : MonoBehaviour {
         }
     }
 
+    void RunAway () {
+        targetObj = gameObject;
+    }
+
     public void MakeSick () {
         if (sick == true) {
             return;
@@ -300,11 +320,29 @@ public class Pig : MonoBehaviour {
 				ScheduleJump ();
 			}
 		}
+        UpdateScaredOf();
 	}
+
+    void UpdateScaredOf () {
+        SkeleGhost[] ghosts = FindObjectsOfType<SkeleGhost>();
+        if (ghosts.Length == 0) {
+            ScaredOf = null;
+            return;
+        }
+        float dist = float.PositiveInfinity;
+        SkeleGhost nearGhost = ghosts[0];
+        foreach (SkeleGhost ghost in ghosts) {
+            float newDist = Vector3.Distance(ghost.transform.position, transform.position);
+            if (newDist < dist) {
+                nearGhost = ghost;
+            }
+        }
+        ScaredOf = nearGhost;
+    }
 
     void OnTriggerStay2D (Collider2D other) {
         Grass otherGrass = other.gameObject.GetComponent<Grass>();
-        if (otherGrass != null && otherGrass.Edible && Hungry && !infectious) {
+        if (otherGrass != null && otherGrass.Edible && Hungry && !infectious && !Scared) {
             Destroy(other.gameObject);
             Eat();
         }
@@ -312,6 +350,8 @@ public class Pig : MonoBehaviour {
         if (otherCure != null) {
             if (otherCure.type == PopType.CURE) {
                 Cure();
+            } else if (otherCure.type == PopType.INFECT) {
+                MakeSick();
             }
         }
     }
@@ -330,9 +370,5 @@ public class Pig : MonoBehaviour {
             }
         }
         */
-        Pop otherPop = other.GetComponent<Pop>();
-        if (!infectious && otherPop != null && otherPop.type == PopType.INFECT) {
-            MakeSick();
-        }
     }
 }

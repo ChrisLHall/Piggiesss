@@ -8,10 +8,13 @@ public class DeadPig : MonoBehaviour {
     SpriteRenderer rend;
 
     const float SKELETON_DELAY = 20f;
+    const float GHOST_DELAY = 10f;
 
     bool isSkeleton;
 
     Coroutine becomeSkeleton;
+
+    public GameObject ghostPrefab;
 
     void Awake () {
         rend = GetComponentInChildren<SpriteRenderer>();
@@ -22,6 +25,11 @@ public class DeadPig : MonoBehaviour {
     IEnumerator BecomeSkeleton () {
         yield return new WaitForSeconds(SKELETON_DELAY + Random.value * 3f);
         SetSkeleton(true);
+        if (Random.value < 0.1f) {
+            yield return new WaitForSeconds(GHOST_DELAY + Random.value * 3f);
+            Instantiate(ghostPrefab, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
     }
 	
     public void SetSprites (int index, bool left) {

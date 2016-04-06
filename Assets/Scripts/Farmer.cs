@@ -156,5 +156,8 @@ public class Farmer : MonoBehaviour {
         if (other.GetComponent<DeadPig>() != null) {
             Destroy(other.gameObject);
         }
+        if (other.GetComponent<SkeleGhost>() != null) {
+            Destroy(other.gameObject);
+        }
     }
 }
