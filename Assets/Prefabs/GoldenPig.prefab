@@ -100,7 +100,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dc4624e23ebf81d4eb2b1a4c3725324d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a6e010b327f39294b9c1aa92b5df6674, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -177,16 +177,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regSprites:
-  - leftSprite: {fileID: 21300000, guid: 58b82bc4229f87b4fa2b7580660b1989, type: 3}
-    rightSprite: {fileID: 21300010, guid: 58b82bc4229f87b4fa2b7580660b1989, type: 3}
-  - leftSprite: {fileID: 21300002, guid: 58b82bc4229f87b4fa2b7580660b1989, type: 3}
-    rightSprite: {fileID: 21300012, guid: 58b82bc4229f87b4fa2b7580660b1989, type: 3}
-  - leftSprite: {fileID: 21300004, guid: 58b82bc4229f87b4fa2b7580660b1989, type: 3}
-    rightSprite: {fileID: 21300014, guid: 58b82bc4229f87b4fa2b7580660b1989, type: 3}
-  - leftSprite: {fileID: 21300006, guid: 58b82bc4229f87b4fa2b7580660b1989, type: 3}
-    rightSprite: {fileID: 21300016, guid: 58b82bc4229f87b4fa2b7580660b1989, type: 3}
-  - leftSprite: {fileID: 21300008, guid: 58b82bc4229f87b4fa2b7580660b1989, type: 3}
-    rightSprite: {fileID: 21300018, guid: 58b82bc4229f87b4fa2b7580660b1989, type: 3}
+  - leftSprite: {fileID: 21300000, guid: a6a4a2eed35316b478651d08895f32d5, type: 3}
+    rightSprite: {fileID: 21300010, guid: a6a4a2eed35316b478651d08895f32d5, type: 3}
+  - leftSprite: {fileID: 21300002, guid: a6a4a2eed35316b478651d08895f32d5, type: 3}
+    rightSprite: {fileID: 21300012, guid: a6a4a2eed35316b478651d08895f32d5, type: 3}
+  - leftSprite: {fileID: 21300004, guid: a6a4a2eed35316b478651d08895f32d5, type: 3}
+    rightSprite: {fileID: 21300014, guid: a6a4a2eed35316b478651d08895f32d5, type: 3}
+  - leftSprite: {fileID: 21300006, guid: a6a4a2eed35316b478651d08895f32d5, type: 3}
+    rightSprite: {fileID: 21300016, guid: a6a4a2eed35316b478651d08895f32d5, type: 3}
+  - leftSprite: {fileID: 21300008, guid: a6a4a2eed35316b478651d08895f32d5, type: 3}
+    rightSprite: {fileID: 21300018, guid: a6a4a2eed35316b478651d08895f32d5, type: 3}
   sickSprites:
   - leftSprite: {fileID: 21300000, guid: cee70250f5e2a4cc2bc1873237f5093f, type: 3}
     rightSprite: {fileID: 21300010, guid: cee70250f5e2a4cc2bc1873237f5093f, type: 3}
@@ -213,9 +213,7 @@ MonoBehaviour:
   followPigsWhenInfected: 1
   poopPrefab: {fileID: 109224, guid: 9fb5e7636513c4947a36f5d953905e39, type: 2}
   poopSounds:
-  - {fileID: 8300000, guid: 1e0b811fcceaecd44a0379e9bf7fbb8c, type: 3}
-  - {fileID: 8300000, guid: 6c9373ee830424c498a57b3885446c7c, type: 3}
-  - {fileID: 8300000, guid: ec9f6bbf4ffd98d48bdb1efbe6811fed, type: 3}
+  - {fileID: 8300000, guid: 62fd0f3941e22fb499866aef90b72fd5, type: 3}
   infectCloudPrefab: {fileID: 168416, guid: 2275f6d2ad6e8e442b286cacfbffb0d5, type: 2}
   deadPrefab: {fileID: 185092, guid: 5f431b9c6a9291f47a275fd311484864, type: 2}
   coughs:
@@ -248,8 +246,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2098849897
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 58b82bc4229f87b4fa2b7580660b1989, type: 3}
-  m_Color: {r: 0.7904158, g: 0.8014706, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: a6a4a2eed35316b478651d08895f32d5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1001 &100100000

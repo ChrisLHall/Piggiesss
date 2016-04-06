@@ -8,7 +8,7 @@ public class SkeleGhost : MonoBehaviour {
     Transform target;
 
     const float DAMPING = 0.9f;
-    const float ACCEL = 1.9f;
+    const float ACCEL = 2.5f;
     Vector2 vel;
 
     SpriteRenderer srend;

@@ -25,7 +25,7 @@ public class DeadPig : MonoBehaviour {
     IEnumerator BecomeSkeleton () {
         yield return new WaitForSeconds(SKELETON_DELAY + Random.value * 3f);
         SetSkeleton(true);
-        if (Random.value < 0.1f) {
+        if (Random.value < 1f) {
             yield return new WaitForSeconds(GHOST_DELAY + Random.value * 3f);
             Instantiate(ghostPrefab, transform.position, transform.rotation);
             Destroy(gameObject);
@@ -44,6 +44,6 @@ public class DeadPig : MonoBehaviour {
         } else {
             rend.sprite = bloodSkeleton;
         }
-        StopCoroutine(becomeSkeleton);
+        //StopCoroutine(becomeSkeleton);
     }
 }
