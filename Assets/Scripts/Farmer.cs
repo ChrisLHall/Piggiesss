@@ -70,7 +70,7 @@ public class Farmer : MonoBehaviour {
             DequeueAction();
         } else if (state == FarmerState.Moving) {
 			float duration = Time.time - moveStartTime;
-			float progress = duration / moveDuration;
+			float progress = duration / Mathf.Max(moveDuration, .0001f);
 			Vector2 vertical = Vector2.up * (1f - Mathf.Pow(Mathf.Sin (Mathf.PI * progress * 3f * moveDuration), 4)) * stepHeight;
 			transform.position = Vector2.Lerp (startPos, target, duration / moveDuration);
             graphics.transform.localPosition = vertical;
