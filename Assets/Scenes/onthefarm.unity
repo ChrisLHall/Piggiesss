@@ -155,6 +155,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1926,6 +1927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a86f195c23a0a45a4f113c369989e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grassLimit: 1000
   scoreCounter: {fileID: 1234505259}
   poopCounter: {fileID: 1751364569}
   grassButton: {fileID: 1304970419}

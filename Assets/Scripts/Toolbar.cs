@@ -8,6 +8,7 @@ public class Toolbar : MonoBehaviour {
         private set;
     }
 
+    public int grassLimit;
     public Counter scoreCounter;
     public Counter poopCounter;
 
@@ -80,7 +81,8 @@ public class Toolbar : MonoBehaviour {
         cureButton.SetHighlight(false);
         golemButton.SetHighlight(false);
         statueButton.SetHighlight(false);
-        if (ToolMode == FarmerActionType.Grass) {
+        if (ToolMode == FarmerActionType.Grass
+                && GameObject.FindGameObjectsWithTag("Grass").Length < grassLimit) {
             grassButton.SetHighlight(true);
         } else if (ToolMode == FarmerActionType.Pig) {
             pigButton.SetHighlight(true);
@@ -107,8 +109,10 @@ public class Toolbar : MonoBehaviour {
             }
         }
         GameObject prefab = prefabDict[action];
-        GameObject instance = Instantiate<GameObject>(prefab);
-        instance.transform.position = pos;
+        if (prefab.tag != "Grass" || GameObject.FindGameObjectsWithTag("Grass").Length < grassLimit) {
+            GameObject instance = Instantiate<GameObject>(prefab);
+            instance.transform.position = pos;
+        }
     }
 
     public bool CanAffordAction(FarmerActionType action,
