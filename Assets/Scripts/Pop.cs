@@ -7,7 +7,7 @@ public enum PopType {
 }
 
 public class Pop : MonoBehaviour {
-    const float EXPIRE_TIME = 0.3f;
+    const float EXPIRE_TIME = 0.2f;
     public PopType type;
     
 	// Use this for initialization

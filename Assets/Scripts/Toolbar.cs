@@ -9,6 +9,7 @@ public class Toolbar : MonoBehaviour {
     }
 
     public bool PUSH_TO_BUY_MODE;
+    public bool ALLOW_SCRUBBING;
 
     public int grassLimit;
     public Counter scoreCounter;
@@ -29,13 +30,17 @@ public class Toolbar : MonoBehaviour {
     Dictionary<FarmerActionType, int> actionCostDict = new Dictionary<FarmerActionType, int> {
         { FarmerActionType.Grass, 1 },
         { FarmerActionType.Pig, 5 },
-        { FarmerActionType.Cure, 1 },
         { FarmerActionType.PooGolem, 20 },
         { FarmerActionType.Statue, 200 },
     };
 
     public bool BlockOtherClicks { get; private set; }
-    
+    public bool IgnoreMouseUp { get; private set; }
+    const float SCRUB_TIME = 0.5f;
+    const float SCRUB_INTERVAL = 0.05f;
+    float clickStart;
+    float lastScrubSpawned;
+
     // Use this for initialization
     void Start () {
         ToolMode = FarmerActionType.Move;
@@ -59,6 +64,21 @@ public class Toolbar : MonoBehaviour {
             ToolMode = FarmerActionType.Move;
         }
         UpdateButtonSprites();
+
+        if (Input.GetMouseButtonDown(0)) {
+            IgnoreMouseUp = false;
+            clickStart = Time.time;
+        } else if (Input.GetMouseButton(0)) {
+            if (Time.time - clickStart > SCRUB_TIME) {
+                IgnoreMouseUp = true;
+                if (Time.time - lastScrubSpawned > SCRUB_INTERVAL) {
+                    lastScrubSpawned = Time.time;
+                    Vector3 spawnPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    spawnPos.z = -2f;
+                    bool made = CreatePrefabForAction(FarmerActionType.Cure, spawnPos);
+                }
+            }
+        }
     }
 
     void LateUpdate () {
@@ -115,15 +135,15 @@ public class Toolbar : MonoBehaviour {
         }
     }
     
-    public void CreatePrefabForAction (FarmerActionType action, Vector3 pos) {
+    public bool CreatePrefabForAction (FarmerActionType action, Vector3 pos) {
         if (!prefabDict.ContainsKey(action)) {
-            return;
+            return false;
         }
         if (actionCostDict.ContainsKey(action)) {
             Counter pt = FindObjectOfType<Toolbar>().poopCounter;
             if (pt.amount < actionCostDict[action]) {
                 FindObjectOfType<Farmer>().ClearActions();
-                return;
+                return false;
             } else {
                 pt.ChangeCount(-actionCostDict[action]);
             }
@@ -132,6 +152,9 @@ public class Toolbar : MonoBehaviour {
         if (prefab.tag != "Grass" || GameObject.FindGameObjectsWithTag("Grass").Length < grassLimit) {
             GameObject instance = Instantiate<GameObject>(prefab);
             instance.transform.position = pos;
+            return true;
+        } else {
+            return false;
         }
     }
 

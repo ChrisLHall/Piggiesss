@@ -58,8 +58,9 @@ public class Farmer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonDown(0)
+		if (Input.GetMouseButtonUp(0)
                 && !toolbar.BlockOtherClicks
+                && !toolbar.IgnoreMouseUp
                 && toolbar.CanAffordAction(toolbar.ToolMode, actions, currentAction)) {
             Vector2 point = Map.Inst.Bound(Camera.main.ScreenToWorldPoint(Input.mousePosition));
             if (toolbar.ToolMode == FarmerActionType.Move) {
