@@ -8,6 +8,8 @@ public class Toolbar : MonoBehaviour {
         private set;
     }
 
+    public bool PUSH_TO_BUY_MODE;
+
     public int grassLimit;
     public Counter scoreCounter;
     public Counter poopCounter;
@@ -55,8 +57,8 @@ public class Toolbar : MonoBehaviour {
     void Update () {
         if (!CanAffordAction(ToolMode) || Input.GetKeyDown(KeyCode.Escape)) {
             ToolMode = FarmerActionType.Move;
-            UpdateButtonSprites();
         }
+        UpdateButtonSprites();
     }
 
     void LateUpdate () {
@@ -64,8 +66,18 @@ public class Toolbar : MonoBehaviour {
     }
 	
     public void Clicked (ToolbarButton button) {
-        ToolMode = (ToolMode == button.actionType) ? FarmerActionType.Move : button.actionType;
-        UpdateButtonSprites();
+        if (PUSH_TO_BUY_MODE) {
+            Farmer f = FindObjectOfType<Farmer>();
+            if (f != null) {
+                Vector3 offset = Random.insideUnitCircle * 0.1f;
+                CreatePrefabForAction(button.actionType, f.transform.position + offset);
+            } else {
+                Debug.LogError("WHERES THE FARMER");
+            }
+        } else {
+            ToolMode = (ToolMode == button.actionType) ? FarmerActionType.Move : button.actionType;
+            UpdateButtonSprites();
+        }
 
         BlockOtherClicks = true;
     }
@@ -81,17 +93,25 @@ public class Toolbar : MonoBehaviour {
         cureButton.SetHighlight(false);
         golemButton.SetHighlight(false);
         statueButton.SetHighlight(false);
-        if (ToolMode == FarmerActionType.Grass
-                && GameObject.FindGameObjectsWithTag("Grass").Length < grassLimit) {
-            grassButton.SetHighlight(true);
-        } else if (ToolMode == FarmerActionType.Pig) {
-            pigButton.SetHighlight(true);
-        } else if (ToolMode == FarmerActionType.Cure) {
-            cureButton.SetHighlight(true);
-        } else if (ToolMode == FarmerActionType.PooGolem) {
-            golemButton.SetHighlight(true);
-        } else if (ToolMode == FarmerActionType.Statue) {
-            statueButton.SetHighlight(true);
+        if (PUSH_TO_BUY_MODE) {
+            grassButton.SetHighlight(CanAffordAction(FarmerActionType.Grass));
+            pigButton.SetHighlight(CanAffordAction(FarmerActionType.Pig));
+            cureButton.SetHighlight(CanAffordAction(FarmerActionType.Cure));
+            golemButton.SetHighlight(CanAffordAction(FarmerActionType.PooGolem));
+            statueButton.SetHighlight(CanAffordAction(FarmerActionType.Statue));
+        } else {
+            if (ToolMode == FarmerActionType.Grass
+                    && GameObject.FindGameObjectsWithTag("Grass").Length < grassLimit) {
+                grassButton.SetHighlight(true);
+            } else if (ToolMode == FarmerActionType.Pig) {
+                pigButton.SetHighlight(true);
+            } else if (ToolMode == FarmerActionType.Cure) {
+                cureButton.SetHighlight(true);
+            } else if (ToolMode == FarmerActionType.PooGolem) {
+                golemButton.SetHighlight(true);
+            } else if (ToolMode == FarmerActionType.Statue) {
+                statueButton.SetHighlight(true);
+            }
         }
     }
     
