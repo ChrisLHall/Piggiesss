@@ -109,6 +109,8 @@ public class Toolbar : MonoBehaviour {
             }
         }
         GameObject prefab = prefabDict[action];
+
+        // Check that cannot spawn past the grass limit.
         if (prefab.tag != "Grass" || GameObject.FindGameObjectsWithTag("Grass").Length < grassLimit) {
             GameObject instance = Instantiate<GameObject>(prefab);
             instance.transform.position = pos;

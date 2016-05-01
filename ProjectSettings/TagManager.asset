@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Grass
+  - Score
   layers:
   - Default
   - TransparentFX
@@ -47,6 +48,9 @@ TagManager:
     locked: 0
   - name: Poo
     uniqueID: 3518263327
+    locked: 0
+  - name: PooGolem
+    uniqueID: 2968194867
     locked: 0
   - name: Pig
     uniqueID: 2098849897

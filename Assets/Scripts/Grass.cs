@@ -6,10 +6,17 @@ public class Grass : MonoBehaviour {
     int stateIndex;
     SpriteRenderer sr;
     const float growDelay = 3f;
+    public int grassLimit;
 
     public bool Edible {
         get {
             return (stateIndex == states.Length - 1);
+        }
+    }
+
+    void Start() {
+        if (GameObject.FindGameObjectsWithTag("Grass").Length > grassLimit) {
+            Destroy(this.gameObject);
         }
     }
     

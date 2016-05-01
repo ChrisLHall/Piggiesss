@@ -422,11 +422,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 474570, guid: 2cc32d0877cd3bd4b9cef7be87aa9010, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 147322, guid: 2cc32d0877cd3bd4b9cef7be87aa9010, type: 2}
       propertyPath: m_Name
       value: Grass (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492624, guid: 2cc32d0877cd3bd4b9cef7be87aa9010, type: 2}
+      propertyPath: grassLimit
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2cc32d0877cd3bd4b9cef7be87aa9010, type: 2}
@@ -924,6 +928,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bda04a0ced61054abaf685881263ac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: {fileID: 1234505259}
+  endGame: 0
+  resetScores: 0
 --- !u!114 &770026118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1345,7 +1352,7 @@ GameObject:
   - 114: {fileID: 1234505259}
   m_Layer: 10
   m_Name: ScoreTracker
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1500,7 +1507,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 474570, guid: 2cc32d0877cd3bd4b9cef7be87aa9010, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 147322, guid: 2cc32d0877cd3bd4b9cef7be87aa9010, type: 2}
       propertyPath: m_Name
@@ -1674,7 +1681,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 23.2}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 125, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1728990710
 MonoBehaviour:
@@ -1708,7 +1715,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You Lose!
+  m_Text: 'Game Over!
 
 
     Restart?'
