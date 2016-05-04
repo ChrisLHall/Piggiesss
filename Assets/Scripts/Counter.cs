@@ -6,7 +6,7 @@ public class Counter : MonoBehaviour {
 
     const int MAX = 999999;
 
-    public long amount;
+    public int amount;
     public GameObject digitsPrefab;
     private GameObject[] oldDigits;
 

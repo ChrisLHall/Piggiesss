@@ -1,7 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public class YouLose : MonoBehaviour {
     bool lost;
@@ -9,6 +11,11 @@ public class YouLose : MonoBehaviour {
     Text text;
     float lossTime = 0;
     const float RESTART_DELAY = 6f;
+    public Counter score;
+    public bool endGame;
+    public bool resetScores;
+    bool prevSavedScore;
+
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +25,7 @@ public class YouLose : MonoBehaviour {
             child.gameObject.SetActive(false);
         }
         lost = false;
+        prevSavedScore = false;
         StartCoroutine(LoseCheck());
 	}
 	
@@ -32,7 +40,8 @@ public class YouLose : MonoBehaviour {
     IEnumerator LoseCheck () {
         for (;;) {
             yield return new WaitForSeconds(0.1f);
-            if (tl.Done) {
+            if (tl.Done || endGame) {
+
                 foreach (Poop poo in FindObjectsOfType<Poop>()) {
                     Destroy(poo.gameObject);
                 }
@@ -44,24 +53,51 @@ public class YouLose : MonoBehaviour {
                 text.text = "You Lose! Final score: " + t.scoreCounter.amount + "\n\nRestart";
                 lossTime = Time.time;
                 lost = true;
+
+                int current = score.amount;
+
+                // If the scores were already saved.
+                if (!prevSavedScore) {
+
+                    string savedScores = "";
+
+                    // If scores, was already initialized.
+                    if (PlayerPrefs.HasKey("scores") && !resetScores) {
+
+                        // Load the current high scores and compare with the current.
+                        List<string> scores = new List<string>(PlayerPrefs.GetString("scores").Split(','));
+                        for (int i = 0; i < 5; i ++) {
+                            if (current > Int32.Parse(scores[i])) {
+                                scores.Insert(i, current.ToString());
+                                break;
+                            }
+                        }
+
+                        // Save the newly found high scores to a string and save.
+                        for (int i = 0; i < 5; i ++) {
+                            savedScores += scores[i] + ",";
+                        }
+
+                        PlayerPrefs.SetString("scores", savedScores.Remove(savedScores.Length - 1));
+                        PlayerPrefs.Save();
+
+                    // Initializing the high scores.
+                    } else {
+                        savedScores = ",0,0,0,0";
+                        PlayerPrefs.SetString("scores", current.ToString() + savedScores);
+                        PlayerPrefs.Save();
+                        resetScores = false;
+                    }
+
+                    prevSavedScore = true;
+                    Debug.Log("Current savedScores: " + savedScores);
+                }
+
+        
             }
 
             int pigs = FindObjectsOfType<Pig>().Length;
-            // TODO REMOVE
-            /*
-            pigs = 1;
-            if (pigs == 0) {
-                foreach (Poop poo in FindObjectsOfType<Poop>()) {
-                    Destroy(poo.gameObject);
-                }
-                FindObjectOfType<Toolbar>().poopCounter.amount = 0;
-                foreach (Transform child in transform) {
-                    child.gameObject.SetActive(true);
-                }
-                lossTime = Time.time;
-                lost = true;
-            }
-            */
+            
         }
     }
 

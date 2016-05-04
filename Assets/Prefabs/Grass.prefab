@@ -162,6 +162,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a95d97de75377cf48bd6070baa8b8e5d, type: 3}
   - {fileID: 21300002, guid: a95d97de75377cf48bd6070baa8b8e5d, type: 3}
   - {fileID: 21300004, guid: a95d97de75377cf48bd6070baa8b8e5d, type: 3}
+  grassLimit: 1000
 --- !u!212 &21287494
 SpriteRenderer:
   m_ObjectHideFlags: 1
