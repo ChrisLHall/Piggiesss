@@ -41,6 +41,16 @@ public class Toolbar : MonoBehaviour {
     float clickStart;
     float lastScrubSpawned;
 
+    static Toolbar _inst;
+    public static Toolbar inst {
+        get {
+            if (_inst == null) {
+                _inst = FindObjectOfType<Toolbar>();
+            }
+            return _inst;
+        }
+    }
+
     // Use this for initialization
     void Start () {
         ToolMode = FarmerActionType.Move;
@@ -89,7 +99,7 @@ public class Toolbar : MonoBehaviour {
         if (PUSH_TO_BUY_MODE) {
             Farmer f = FindObjectOfType<Farmer>();
             if (f != null) {
-                Vector3 offset = Random.insideUnitCircle * 0.1f;
+                Vector3 offset = Random.insideUnitCircle * 0.25f;
                 CreatePrefabForAction(button.actionType, f.transform.position + offset);
             } else {
                 Debug.LogError("WHERES THE FARMER");
@@ -110,13 +120,13 @@ public class Toolbar : MonoBehaviour {
     void UpdateButtonSprites () {
         grassButton.SetHighlight(false);
         pigButton.SetHighlight(false);
-        cureButton.SetHighlight(false);
+        //cureButton.SetHighlight(false);
         golemButton.SetHighlight(false);
         statueButton.SetHighlight(false);
         if (PUSH_TO_BUY_MODE) {
             grassButton.SetHighlight(CanAffordAction(FarmerActionType.Grass));
             pigButton.SetHighlight(CanAffordAction(FarmerActionType.Pig));
-            cureButton.SetHighlight(CanAffordAction(FarmerActionType.Cure));
+            //cureButton.SetHighlight(CanAffordAction(FarmerActionType.Cure));
             golemButton.SetHighlight(CanAffordAction(FarmerActionType.PooGolem));
             statueButton.SetHighlight(CanAffordAction(FarmerActionType.Statue));
         } else {
@@ -126,7 +136,7 @@ public class Toolbar : MonoBehaviour {
             } else if (ToolMode == FarmerActionType.Pig) {
                 pigButton.SetHighlight(true);
             } else if (ToolMode == FarmerActionType.Cure) {
-                cureButton.SetHighlight(true);
+                //cureButton.SetHighlight(true);
             } else if (ToolMode == FarmerActionType.PooGolem) {
                 golemButton.SetHighlight(true);
             } else if (ToolMode == FarmerActionType.Statue) {

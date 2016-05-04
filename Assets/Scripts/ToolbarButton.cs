@@ -14,12 +14,12 @@ public class ToolbarButton : MonoBehaviour {
     public bool Enabled { get; set; }
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         toolbar = transform.parent.GetComponent<Toolbar>();
         img = GetComponent<SpriteRenderer>();
 	}
 	
-	void OnMouseDown () {
+	void OnMouseUp () {
         toolbar.Clicked(this);
 	}
 
