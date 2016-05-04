@@ -143,8 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f94f1dc6610b5846a5bedcb3b1a5b84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 30
-  deltaTime: 10
+  minTime: 15
+  deltaTime: 5
   spawnThis: {fileID: 162850, guid: 2d77ccd908065854a8f9d4aadcdebe7d, type: 2}
 --- !u!212 &21280210
 SpriteRenderer:
@@ -186,6 +186,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_SortingLayerID
       value: -776703969
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: minTime
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: deltaTime
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
