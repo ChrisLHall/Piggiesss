@@ -35,7 +35,7 @@ public class Farmer : MonoBehaviour {
 	 * moveSpeed - movement speed in units per second
 	 */
 
-	private const float moveSpeed = 1.3f;
+	private const float moveSpeed = 1.8f;
 	private const float stepHeight = 0.05f;
 
 	private float moveStartTime;

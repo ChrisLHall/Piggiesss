@@ -23,7 +23,7 @@ public class TimeLeft : MonoBehaviour {
 	void Update () {
         timeLeft -= System.TimeSpan.FromSeconds(Time.deltaTime);
 	    if (!Done) {
-            text.text = "Time left: " + timeLeft.Minutes + ":" + timeLeft.Seconds + "." + timeLeft.Milliseconds.ToString("D3");
+            text.text = "Time left: " + timeLeft.Minutes + ":" + timeLeft.Seconds.ToString("D2") + "." + timeLeft.Milliseconds.ToString("D3");
         } else {
             text.text = "Time up!";
         }

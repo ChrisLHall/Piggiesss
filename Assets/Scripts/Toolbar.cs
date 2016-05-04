@@ -30,8 +30,8 @@ public class Toolbar : MonoBehaviour {
     Dictionary<FarmerActionType, int> actionCostDict = new Dictionary<FarmerActionType, int> {
         { FarmerActionType.Grass, 1 },
         { FarmerActionType.Pig, 5 },
-        { FarmerActionType.PooGolem, 20 },
-        { FarmerActionType.Statue, 200 },
+        { FarmerActionType.PooGolem, 15 },
+        { FarmerActionType.Statue, 100 },
     };
 
     public bool BlockOtherClicks { get; private set; }
@@ -99,7 +99,7 @@ public class Toolbar : MonoBehaviour {
         if (PUSH_TO_BUY_MODE) {
             Farmer f = FindObjectOfType<Farmer>();
             if (f != null) {
-                Vector3 offset = Random.insideUnitCircle * 0.25f;
+                Vector3 offset = Random.insideUnitCircle * 0.3f;
                 CreatePrefabForAction(button.actionType, f.transform.position + offset);
             } else {
                 Debug.LogError("WHERES THE FARMER");

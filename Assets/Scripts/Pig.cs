@@ -28,15 +28,15 @@ public class Pig : MonoBehaviour {
 	 * jumpDuration - how long is the jump (seconds)
 	 * jumpHeight - how high should the pig jump 
 	 */
-	const float meanMoveDelay = 2f;
-	const float devMoveDelay = 1f;
+	const float meanMoveDelay = 1.2f;
+	const float devMoveDelay = 0.5f;
     const float hungerDelayReduction = 0.4f;
-	const float jumpRange = 0.2f;
-    const float JUMP_DUR = 0.5f;
+	const float jumpRange = 0.3f;
+    const float JUMP_DUR = 0.4f;
 	float jumpDuration;
 	const float jumpHeight = 0.03f;
 
-    const float POOP_DELAY = 3f;
+    const float POOP_DELAY = 2.5f;
     const float POOP_DELAY_RAND = 1f;
 
 	private Vector2 startPos;
