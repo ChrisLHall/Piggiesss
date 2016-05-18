@@ -15,6 +15,11 @@ public class TimeLeft : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        if (PlayerPrefs.HasKey("Duration")) {
+            timeLimitMins = (float) PlayerPrefs.GetInt("Duration");
+        } else {
+            timeLimitMins = 5f;
+        }
         timeLeft = System.TimeSpan.FromMinutes(timeLimitMins);
         text = GetComponent<Text>();
 	}
