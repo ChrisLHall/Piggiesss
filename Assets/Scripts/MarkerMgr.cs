@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class MarkerMgr : MonoBehaviour {
     static MarkerMgr _inst;
+
     public static MarkerMgr Inst {
         get {
             if (_inst == null) {

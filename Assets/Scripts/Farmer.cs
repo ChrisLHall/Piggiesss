@@ -27,6 +27,7 @@ public class Farmer : MonoBehaviour {
     LinkedList<FarmerAction> actions = new LinkedList<FarmerAction>();
 
     public bool allowInstantAction = false;
+    public GameObject paused;
 
 	public enum FarmerState { Idle, Moving };
 	private FarmerState state;
@@ -58,40 +59,43 @@ public class Farmer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonUp(0)
-                && !toolbar.BlockOtherClicks
-                && !toolbar.IgnoreMouseUp
-                && toolbar.CanAffordAction(toolbar.ToolMode, actions, currentAction)) {
-            Vector2 point = Map.Inst.Bound(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-            if (toolbar.ToolMode == FarmerActionType.Move) {
-                ClearActions();
-            }
-            EnqueueAction(toolbar.ToolMode, point);
-        }
 
-        if (state == FarmerState.Idle) {
-            DequeueAction();
-        } else if (state == FarmerState.Moving) {
-			float duration = Time.time - moveStartTime;
-			float progress = duration / Mathf.Max(moveDuration, .0001f);
-			Vector2 vertical = Vector2.up * (1f - Mathf.Pow(Mathf.Sin (Mathf.PI * progress * 3f * moveDuration), 4)) * stepHeight;
-			transform.position = Vector2.Lerp (startPos, target, duration / moveDuration);
-            graphics.transform.localPosition = vertical;
-            CameraLookPos = transform.position;
-            if (allowInstantAction && currentAction.type != FarmerActionType.Move) {
-                Debug.Log("Creating prefab");
-                toolbar.CreatePrefabForAction(currentAction.type, new Vector3(currentAction.target.x, currentAction.target.y, 0f));
-                state = FarmerState.Idle;
-                SetMarkers();
-            } else if (duration > moveDuration) {
-                if (currentAction.type != FarmerActionType.Move) {
-                    toolbar.CreatePrefabForAction(currentAction.type,
-                            transform.position);
+        if (!paused.GetComponent<Pause>().isPaused) {
+    		if (Input.GetMouseButtonUp(0)
+                    && !toolbar.BlockOtherClicks
+                    && !toolbar.IgnoreMouseUp
+                    && toolbar.CanAffordAction(toolbar.ToolMode, actions, currentAction)) {
+                Vector2 point = Map.Inst.Bound(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                if (toolbar.ToolMode == FarmerActionType.Move) {
+                    ClearActions();
                 }
-                state = FarmerState.Idle;
-                SetMarkers();
-			}
-		}
+                EnqueueAction(toolbar.ToolMode, point);
+            }
+
+            if (state == FarmerState.Idle) {
+                DequeueAction();
+            } else if (state == FarmerState.Moving) {
+                float duration = Time.time - moveStartTime;
+                float progress = duration / Mathf.Max(moveDuration, .0001f);
+                Vector2 vertical = Vector2.up * (1f - Mathf.Pow(Mathf.Sin (Mathf.PI * progress * 3f * moveDuration), 4)) * stepHeight;
+                transform.position = Vector2.Lerp (startPos, target, duration / moveDuration);
+                graphics.transform.localPosition = vertical;
+                CameraLookPos = transform.position;
+                if (allowInstantAction && currentAction.type != FarmerActionType.Move) {
+                    Debug.Log("Creating prefab");
+                    toolbar.CreatePrefabForAction(currentAction.type, new Vector3(currentAction.target.x, currentAction.target.y, 0f));
+                    state = FarmerState.Idle;
+                    SetMarkers();
+                } else if (duration > moveDuration) {
+                    if (currentAction.type != FarmerActionType.Move) {
+                        toolbar.CreatePrefabForAction(currentAction.type,
+                                transform.position);
+                    }
+                    state = FarmerState.Idle;
+                    SetMarkers();
+                }
+            }
+        }
 	}
 
     void DequeueAction () {
