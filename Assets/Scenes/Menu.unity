@@ -415,6 +415,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -512,6 +513,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1069,8 +1071,8 @@ MonoBehaviour:
     \ most points possible before time runs out. You will start with two pooping Pigs.
     Collect the poop and use it to buy new items for your pigs:\n      - Grass: Allows
     Pigs to eat (and poop more)!\n      - Pigs: Buy more Pigs!\n      - Poo Golem:
-    Wanders and randomly plants grass.\n      - Pig Statue: Creates golden pigs.\nRub
-    your finger on the screen on pigs who get sick.\n"
+    Wanders and randomly plants grass.\n      - Pig Statue: Creates golden pigs.\nWatch
+    out for sickness! Rub your finger on the screen on pigs who get sick.\n"
 --- !u!222 &1098588119
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1334,6 +1336,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
