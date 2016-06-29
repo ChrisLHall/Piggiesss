@@ -29,7 +29,7 @@ public class Pause : MonoBehaviour {
         Restart.SetActive(false);
         Sound.SetActive(false);
     }
-	
+    
 
     public void PauseGame() {
 
