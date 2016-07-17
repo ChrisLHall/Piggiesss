@@ -57,59 +57,28 @@ public class YouLose : MonoBehaviour {
 
                 int current = score.amount;
                 int duration = PlayerPrefs.GetInt("Duration");
-                List<string> scores = null;
 
-                // If the scores were already saved.
+                int[] scores;
                 if (!prevSavedScore) {
-
-                    string savedScores = "";
-
-                    if (!PlayerPrefs.HasKey("scores" + duration.ToString()) || resetScores) {
-                        savedScores = ",0,0,0,0";
-                        PlayerPrefs.SetString("scores"  + duration.ToString(), current.ToString() + savedScores);
-                        PlayerPrefs.Save();
-                        resetScores = false;
-                    } else {
-
-                        // Load the current high scores and compare with the current.
-                        scores = new List<string>(PlayerPrefs.GetString("scores"  + duration.ToString()).Split(','));
-                        for (int i = 0; i < 5; i ++) {
-                            if (current > Int32.Parse(scores[i])) {
-                                scores.Insert(i, current.ToString());
-                                break;
-                            }
-                        }
-
-                        while (scores.Count > 5) {
-                            scores.RemoveAt(scores.Count - 1);
-                        }
-                        // Save the newly found high scores to a string and save.
-                        savedScores += string.Join(",", scores.ToArray());
-
-                        PlayerPrefs.SetString("scores"  + duration.ToString(), savedScores);
-                        PlayerPrefs.Save();
-
-                        prevSavedScore = true;
-                        Debug.Log("Current savedScores: " + savedScores);
-                    }
-
+                    scores = HighScoreUtil.AddHighScore(current, duration);
+                    prevSavedScore = true;
+                } else {
+                    scores = HighScoreUtil.LoadHighScores(duration);
                 }
 
                 // Display high scores.
-                string durationSuffix = " minutes\n";
+                string durationSuffix = " minutes";
                 if (duration == 1) {
-                    durationSuffix = " minute\n";
+                    durationSuffix = " minute";
                 }
                 text.text += "\n\nHigh scores - " + duration.ToString() + durationSuffix;
                 for (int i = 0; i < 5; i++) {
-                    if (Int32.Parse(scores[i]) > 0) {
-                        text.text += scores[i] + "\n";
-                    }
+                    text.text += "\n" + scores[i].ToString();
                 }
             }
         }
     }
-
+    
     public void DoRestart () {
         if (!lost || Time.time < lossTime + RESTART_DELAY) {
             return;
