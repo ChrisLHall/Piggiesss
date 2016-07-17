@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
@@ -11,16 +11,10 @@ public class Pause : MonoBehaviour {
     public GameObject Restart;
     public GameObject Sound;
     Text text;
+    public Text sfxText;
+    public Text musicText;
 
     void Start() {
-
-        // Initialize sound unless already saved sound prefs.
-        if (PlayerPrefs.HasKey("sound")) {
-            ToggleSound(PlayerPrefs.GetInt("sound"));
-        } else {
-            ToggleSound(1);
-        }
-
         Time.timeScale = 1;
         isPaused = false;
         background.SetActive(false);
@@ -74,8 +68,8 @@ public class Pause : MonoBehaviour {
 
     // Toggles sound on and off and saves the user preferences.
     // If onOff == -1, then toggles sound, otherwise sets to value.
-    public void ToggleSound(int onOff = -1) {
-
+    public void RefreshSoundText() { // int onOff = -1) {
+        /*
         bool audioState; // If true, audio is on; false, audio is off.
 
         // Initializing value.
@@ -97,12 +91,18 @@ public class Pause : MonoBehaviour {
 
         AudioListener.pause = !audioState;
         PlayerPrefs.SetInt("sound", audioState ? 1 : 0);
-
+        */
         // Set the text in the pause menu.
-        if (audioState) {
-            Sound.GetComponent<Text>().text = "Sound: On";
+        var av = FindObjectOfType<AudioVol>();
+        if (av.SFXOn) {
+            sfxText.text = "Sound FX: On";
         } else {
-            Sound.GetComponent<Text>().text = "Sound: Off";
+            sfxText.text = "Sound FX: Off";
+        }
+        if (av.MusicOn) {
+            musicText.text = "Music: On";
+        } else {
+            musicText.text = "Music: Off";
         }
     }
 }
