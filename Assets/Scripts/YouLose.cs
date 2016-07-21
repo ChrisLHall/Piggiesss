@@ -35,7 +35,7 @@ public class YouLose : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Escape)
                 && FindObjectOfType<Toolbar>().ToolMode == FarmerActionType.Move) {
-            Application.Quit();
+            SceneManager.LoadScene(0);
         }
 	}
 

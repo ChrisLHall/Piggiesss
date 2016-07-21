@@ -38,6 +38,9 @@ public class AudioVol : MonoBehaviour {
         SFXOn = on;
         PlayerPrefs.SetInt("sfx", on ? 1 : 0);
         UpdateVolsAndSprites();
+        if (null != Toolbar.inst) {
+            Toolbar.inst.BlockClick();
+        }
     }
 
     public void ToggleSFX () {
@@ -48,6 +51,9 @@ public class AudioVol : MonoBehaviour {
         MusicOn = on;
         PlayerPrefs.SetInt("music", on ? 1 : 0);
         UpdateVolsAndSprites();
+        if (null != Toolbar.inst) {
+            Toolbar.inst.BlockClick();
+        }
     }
 
     public void ToggleMusic () {

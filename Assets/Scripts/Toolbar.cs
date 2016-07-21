@@ -70,7 +70,7 @@ public class Toolbar : MonoBehaviour {
     }
 
     void Update () {
-        if (!CanAffordAction(ToolMode) || Input.GetKeyDown(KeyCode.Escape)) {
+        if (!CanAffordAction(ToolMode)) {// || Input.GetKeyDown(KeyCode.Escape)) {
             ToolMode = FarmerActionType.Move;
         }
         UpdateButtonSprites();
@@ -109,6 +109,10 @@ public class Toolbar : MonoBehaviour {
             UpdateButtonSprites();
         }
 
+        BlockOtherClicks = true;
+    }
+
+    public void BlockClick () {
         BlockOtherClicks = true;
     }
     

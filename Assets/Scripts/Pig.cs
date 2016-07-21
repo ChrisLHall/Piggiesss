@@ -87,13 +87,13 @@ public class Pig : MonoBehaviour {
         sick = false;
     }
 
-	// Use this for initialization
-	void Start () {
-		sr = transform.FindChild("Graphics").GetComponent<SpriteRenderer>();
-		sprite = 0;
-		sr.sprite = sprites[sprite].leftSprite;
-		state = PigState.Idle;
-		ScheduleJump();
+    // Use this for initialization
+    void Start () {
+	sr = transform.FindChild("Graphics").GetComponent<SpriteRenderer>();
+	sprite = 0;
+	sr.sprite = sprites[sprite].leftSprite;
+	state = PigState.Idle;
+	ScheduleJump();
         poopCoroutine = StartCoroutine(PoopSometimes());
         starveCoroutine = StartCoroutine(Starve());
         randomInfectCoroutine = StartCoroutine(RandomlyInfectSometime());
@@ -284,6 +284,7 @@ public class Pig : MonoBehaviour {
         UpdateSprite();
         StopCoroutine(starveCoroutine);
         starveCoroutine = StartCoroutine(Starve());
+        SwipeHelp.inst.PigGotSick(transform);
     }
 
     public void Cure () {
@@ -298,6 +299,7 @@ public class Pig : MonoBehaviour {
             StopCoroutine(starveCoroutine);
             starveCoroutine = StartCoroutine(Starve());
         }
+        SwipeHelp.inst.PigGotCured(transform);
     }
 
     IEnumerator RandomlyInfectSometime () {

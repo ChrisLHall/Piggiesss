@@ -22,6 +22,7 @@ public class Pause : MonoBehaviour {
         MainMenu.SetActive(false);
         Restart.SetActive(false);
         Sound.SetActive(false);
+        musicText.gameObject.SetActive(false);
     }
     
 
@@ -35,6 +36,7 @@ public class Pause : MonoBehaviour {
             MainMenu.SetActive(false);
             Restart.SetActive(false);
             Sound.SetActive(false);
+            musicText.gameObject.SetActive(false);
             StartCoroutine(UnpauseWait());
 
         // Pause game.
@@ -45,6 +47,7 @@ public class Pause : MonoBehaviour {
             MainMenu.SetActive(true);
             Restart.SetActive(true);
             Sound.SetActive(true);
+            musicText.gameObject.SetActive(true);
             isPaused = !isPaused;
         }
     }
@@ -66,9 +69,17 @@ public class Pause : MonoBehaviour {
         SceneManager.LoadScene("onthefarm");
     }
 
+    public void ToggleSFX () {
+        FindObjectOfType<AudioVol>().ToggleSFX();
+    }
+
+    public void ToggleMusic () {
+        FindObjectOfType<AudioVol>().ToggleMusic();
+    }
+
     // Toggles sound on and off and saves the user preferences.
     // If onOff == -1, then toggles sound, otherwise sets to value.
-    public void RefreshSoundText() { // int onOff = -1) {
+    public void Update () { // int onOff = -1) {
         /*
         bool audioState; // If true, audio is on; false, audio is off.
 

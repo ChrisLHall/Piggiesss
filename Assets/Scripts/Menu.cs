@@ -12,12 +12,20 @@ public class Menu : MonoBehaviour {
 
     public HighScoreGUI highScoreGUI;
 
-	// Use this for initialization
+    // Use this for initialization
+    float startTime = 0f;
     void Start () {
+        startTime = Time.time;
         instCanvas.enabled = false;
         timeCanvas.enabled = false;
         highScoreCanvas.enabled = false;
         creditsCanvas.enabled = false;
+    }
+
+    void Update () {
+        if (Input.GetKeyDown(KeyCode.Escape) && Time.time > startTime + 3f) {
+            Application.Quit();
+        }
     }
 	
     public void ViewPlay() {
