@@ -94,6 +94,10 @@ public class Toolbar : MonoBehaviour {
     void LateUpdate () {
         BlockOtherClicks = false;
     }
+
+    public void SwitchBlockedClicks() {
+        BlockOtherClicks = !BlockOtherClicks;
+    }
 	
     public void Clicked (ToolbarButton button) {
         if (PUSH_TO_BUY_MODE) {

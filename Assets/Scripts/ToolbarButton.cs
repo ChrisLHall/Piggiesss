@@ -18,6 +18,16 @@ public class ToolbarButton : MonoBehaviour {
         toolbar = transform.parent.GetComponent<Toolbar>();
         img = GetComponent<SpriteRenderer>();
 	}
+
+    void OnMouseOver() {
+        if (toolbar != null && !toolbar.BlockOtherClicks)
+            toolbar.SwitchBlockedClicks();
+    }
+
+    void OnMouseExit() {
+        if (toolbar != null && toolbar.BlockOtherClicks) 
+            toolbar.SwitchBlockedClicks();
+    }
 	
 	void OnMouseUp () {
         toolbar.Clicked(this);

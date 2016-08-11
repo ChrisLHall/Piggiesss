@@ -12,6 +12,7 @@ public class Pig : MonoBehaviour {
 	private int sprite;
     bool left;
 	SpriteRenderer sr;
+    const int PIG_LIMIT = 30;
 
     const float SICK_TIME = 0f;
     Coroutine sickRoutine;
@@ -19,7 +20,8 @@ public class Pig : MonoBehaviour {
     bool sick;
     int infections;
     const int INFECTIONS_TO_DIE = 2;
-    public bool followPigsWhenInfected = false;
+    public bool followPigsWhenInfected = false; 
+    public static int numPigs = 0;
 
 	/* Configuration:
 	 * meanMoveDelay - the average amount of time in seconds between jumps
@@ -89,19 +91,19 @@ public class Pig : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-	sr = transform.FindChild("Graphics").GetComponent<SpriteRenderer>();
-	sprite = 0;
-	sr.sprite = sprites[sprite].leftSprite;
-	state = PigState.Idle;
-	ScheduleJump();
-        poopCoroutine = StartCoroutine(PoopSometimes());
-        starveCoroutine = StartCoroutine(Starve());
-        randomInfectCoroutine = StartCoroutine(RandomlyInfectSometime());
-        
-        if (infectious) {
-            sprites = infectedSprites;
-            UpdateSprite();
-        }
+        sr = transform.FindChild("Graphics").GetComponent<SpriteRenderer>();
+        sprite = 0;
+        sr.sprite = sprites[sprite].leftSprite;
+        state = PigState.Idle;
+        ScheduleJump();
+            poopCoroutine = StartCoroutine(PoopSometimes());
+            starveCoroutine = StartCoroutine(Starve());
+            randomInfectCoroutine = StartCoroutine(RandomlyInfectSometime());
+            
+            if (infectious) {
+                sprites = infectedSprites;
+                UpdateSprite();
+            }
     }
 
 	private void ScheduleJump() {
@@ -195,10 +197,10 @@ public class Pig : MonoBehaviour {
         if (infectious) {
             yield return new WaitForSeconds(STARVE_TIME + Random.value * 5f);
         } else {
-            yield return new WaitForSeconds(1000f);
-
+            yield return new WaitForSeconds(60f);
         }
         yield return StartCoroutine(Shake(0.1f, 2f));
+        
         if (infectious) {
             Die(true, false);
             Instantiate(infectCloudPrefab, transform.position, transform.rotation);
@@ -327,8 +329,8 @@ public class Pig : MonoBehaviour {
 			}
 		}
         UpdateScaredOf();
+        
 	}
-
     void UpdateScaredOf () {
         SkeleGhost[] ghosts = FindObjectsOfType<SkeleGhost>();
         if (ghosts.Length == 0) {
@@ -360,21 +362,5 @@ public class Pig : MonoBehaviour {
                 MakeSick();
             }
         }
-    }
-
-    void OnCollisionEnter2D (Collision2D coll) {
-        GameObject other = coll.gameObject;
-        /*
-        Pig otherPig = other.GetComponent<Pig>();
-        if (infectious && otherPig != null && !otherPig.infectious && !otherPig.sick) {
-            otherPig.MakeSick();
-            StopCoroutine(starveCoroutine);
-            starveCoroutine = StartCoroutine(Starve());
-            infections++;
-            if (infections > INFECTIONS_TO_DIE) {
-                Die(true, false);
-            }
-        }
-        */
     }
 }

@@ -4,7 +4,7 @@ using System;
 
 public class Counter : MonoBehaviour {
 
-    const int MAX = 999999;
+    public int MAX = 999999;
 
     public int amount;
     public GameObject digitsPrefab;

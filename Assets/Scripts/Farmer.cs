@@ -117,7 +117,6 @@ public class Farmer : MonoBehaviour {
         target = currentAction.target;
         startPos = transform.position;
         Debug.DrawLine(startPos, target, Color.blue, 0.1f);
-        //Debug.Log(target);
         state = FarmerState.Moving;
         moveStartTime = Time.time;
 
