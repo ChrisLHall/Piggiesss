@@ -215,6 +215,8 @@ MonoBehaviour:
   infectious: 0
   followPigsWhenInfected: 1
   poopPrefab: {fileID: 109224, guid: 9fb5e7636513c4947a36f5d953905e39, type: 2}
+  nonPoopSounds:
+  - {fileID: 8300000, guid: 62fd0f3941e22fb499866aef90b72fd5, type: 3}
   poopSounds:
   - {fileID: 8300000, guid: 62fd0f3941e22fb499866aef90b72fd5, type: 3}
   infectCloudPrefab: {fileID: 168416, guid: 2275f6d2ad6e8e442b286cacfbffb0d5, type: 2}

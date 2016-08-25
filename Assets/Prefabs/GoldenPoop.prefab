@@ -26,11 +26,11 @@ Transform:
   m_GameObject: {fileID: 109224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1810457, y: 1.1810462, z: 1.1810462}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6147148
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -57,6 +57,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 3
+  pooSprite: {fileID: 21300000, guid: 42b35fc26fa0f4cfd9c800cb85119c74, type: 3}
+  nonPooSprite: {fileID: 21300000, guid: 04685bd71e6fc4988b1f371c1009539e, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -99,14 +101,13 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedWireframeHidden: 1
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -776703969
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 04685bd71e6fc4988b1f371c1009539e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 42b35fc26fa0f4cfd9c800cb85119c74, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

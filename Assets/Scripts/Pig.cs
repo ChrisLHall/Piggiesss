@@ -51,8 +51,9 @@ public class Pig : MonoBehaviour {
 
     public GameObject poopPrefab;
     Coroutine poopCoroutine;
+    public AudioClip[] nonPoopSounds;
     public AudioClip[] poopSounds;
-    
+
     const float STARVE_TIME = 20f;
     Coroutine starveCoroutine;
     public GameObject infectCloudPrefab;
@@ -178,8 +179,9 @@ public class Pig : MonoBehaviour {
     void Poop () {
         GameObject newPoop = Instantiate<GameObject>(poopPrefab);
         newPoop.transform.position = transform.position;
+        AudioClip[] sounds = Toolbar.inst.ALLOW_POOP ? poopSounds : nonPoopSounds;
         GetComponent<AudioSource>().PlayOneShot(
-                poopSounds[Random.Range(0, poopSounds.Length)]);
+                sounds[Random.Range(0, sounds.Length)]);
     }
 
     void Eat () {

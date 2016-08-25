@@ -15,13 +15,23 @@ public class PooGolem : MonoBehaviour {
 
     Vector3 origPos;
 
-	// Use this for initialization
-	void Start () {
+    public RuntimeAnimatorController pooAnim;
+    public RuntimeAnimatorController nonPooAnim;
+    void Awake () {
         anim = GetComponentInChildren<Animator>();
         srend = GetComponentInChildren<SpriteRenderer>();
+        if (Toolbar.inst.ALLOW_POOP) {
+            anim.runtimeAnimatorController = pooAnim;
+        } else {
+            anim.runtimeAnimatorController = nonPooAnim;
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
         origPos = transform.position;
         StartCoroutine(WalkInCircles());
-	}
+    }
 
     IEnumerator WalkInCircles () {
         if (Random.value < 0.5f) {

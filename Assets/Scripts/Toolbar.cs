@@ -10,6 +10,7 @@ public class Toolbar : MonoBehaviour {
 
     public bool PUSH_TO_BUY_MODE;
     public bool ALLOW_SCRUBBING;
+    public bool ALLOW_POOP;
 
     public int grassLimit;
     public Counter scoreCounter;
