@@ -9,6 +9,8 @@ public class ToolbarButton : MonoBehaviour {
 
     public Sprite enabledSprite;
     public Sprite disabledSprite;
+    public Sprite noPoopEnabledSprite;
+    public Sprite noPoopDisabledSprite;
     SpriteRenderer img;
 
     public bool Enabled { get; set; }
@@ -17,6 +19,9 @@ public class ToolbarButton : MonoBehaviour {
 	void Awake () {
         toolbar = transform.parent.GetComponent<Toolbar>();
         img = GetComponent<SpriteRenderer>();
+        if (!toolbar.ALLOW_POOP && null != noPoopDisabledSprite) {
+            img.sprite = noPoopDisabledSprite;
+        }
 	}
 
     void OnMouseOver() {
@@ -35,9 +40,11 @@ public class ToolbarButton : MonoBehaviour {
 
     public void SetHighlight (bool highlight) {
         if (highlight) {
-            img.sprite = enabledSprite;
+            img.sprite = (!toolbar.ALLOW_POOP && null != noPoopEnabledSprite)
+                    ? noPoopEnabledSprite : enabledSprite;
         } else {
-            img.sprite = disabledSprite;
+            img.sprite = (!toolbar.ALLOW_POOP && null != noPoopDisabledSprite)
+                    ? noPoopDisabledSprite : disabledSprite;
         }
     }
 }

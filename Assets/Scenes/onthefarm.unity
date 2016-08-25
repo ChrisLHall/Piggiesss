@@ -529,6 +529,8 @@ MonoBehaviour:
   actionType: 3
   enabledSprite: {fileID: 21300004, guid: 26692dfff28251344b3a194a420be81b, type: 3}
   disabledSprite: {fileID: 21300010, guid: 26692dfff28251344b3a194a420be81b, type: 3}
+  noPoopEnabledSprite: {fileID: 0}
+  noPoopDisabledSprite: {fileID: 0}
 --- !u!1 &239623293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,6 +1558,8 @@ MonoBehaviour:
   actionType: 4
   enabledSprite: {fileID: 21300006, guid: 26692dfff28251344b3a194a420be81b, type: 3}
   disabledSprite: {fileID: 21300012, guid: 26692dfff28251344b3a194a420be81b, type: 3}
+  noPoopEnabledSprite: {fileID: 0}
+  noPoopDisabledSprite: {fileID: 0}
 --- !u!61 &651667854
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2175,6 +2179,10 @@ MonoBehaviour:
   actionType: 5
   enabledSprite: {fileID: 21300014, guid: 26692dfff28251344b3a194a420be81b, type: 3}
   disabledSprite: {fileID: 21300018, guid: 26692dfff28251344b3a194a420be81b, type: 3}
+  noPoopEnabledSprite: {fileID: 21300000, guid: 0e00469d825785a4c871247379476248,
+    type: 3}
+  noPoopDisabledSprite: {fileID: 21300002, guid: 0e00469d825785a4c871247379476248,
+    type: 3}
 --- !u!61 &1146868312
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2391,6 +2399,8 @@ MonoBehaviour:
   actionType: 6
   enabledSprite: {fileID: 21300016, guid: 26692dfff28251344b3a194a420be81b, type: 3}
   disabledSprite: {fileID: 21300020, guid: 26692dfff28251344b3a194a420be81b, type: 3}
+  noPoopEnabledSprite: {fileID: 0}
+  noPoopDisabledSprite: {fileID: 0}
 --- !u!61 &1226491116
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2557,6 +2567,8 @@ MonoBehaviour:
   actionType: 2
   enabledSprite: {fileID: 21300008, guid: 26692dfff28251344b3a194a420be81b, type: 3}
   disabledSprite: {fileID: 21300000, guid: 26692dfff28251344b3a194a420be81b, type: 3}
+  noPoopEnabledSprite: {fileID: 0}
+  noPoopDisabledSprite: {fileID: 0}
 --- !u!61 &1304970420
 BoxCollider2D:
   m_ObjectHideFlags: 0
