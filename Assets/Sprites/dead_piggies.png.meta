@@ -36,7 +36,7 @@ TextureImporter:
   cubemapConvolutionSteps: 7
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
     filterMode: 0
@@ -56,6 +56,7 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
@@ -77,6 +78,7 @@ TextureImporter:
         - {x: -9, y: -16}
         - {x: 10, y: -16}
         - {x: 10, y: -2}
+      tessellationDetail: -1
     - name: dead_piggies_1
       rect:
         serializedVersion: 2
@@ -96,6 +98,7 @@ TextureImporter:
         - {x: -12, y: -16}
         - {x: 12, y: -16}
         - {x: 14, y: -12}
+      tessellationDetail: -1
     - name: dead_piggies_2
       rect:
         serializedVersion: 2
@@ -115,6 +118,7 @@ TextureImporter:
         - {x: 16, y: -9}
         - {x: 16, y: 8}
         - {x: 14, y: 10}
+      tessellationDetail: -1
     - name: dead_piggies_3
       rect:
         serializedVersion: 2
@@ -133,6 +137,7 @@ TextureImporter:
         - {x: 16, y: -16}
         - {x: 16, y: 4}
         - {x: 15, y: 8}
+      tessellationDetail: -1
     - name: dead_piggies_4
       rect:
         serializedVersion: 2
@@ -153,6 +158,7 @@ TextureImporter:
         - {x: 16, y: -13}
         - {x: 16, y: 12}
         - {x: 14, y: 16}
+      tessellationDetail: -1
     - name: dead_piggies_5
       rect:
         serializedVersion: 2
@@ -164,6 +170,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: dead_piggies_6
       rect:
         serializedVersion: 2
@@ -175,6 +182,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: dead_piggies_7
       rect:
         serializedVersion: 2
@@ -186,6 +194,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: dead_piggies_8
       rect:
         serializedVersion: 2
@@ -203,6 +212,7 @@ TextureImporter:
         - {x: 16, y: -13}
         - {x: 16, y: 2}
         - {x: 14, y: 8}
+      tessellationDetail: -1
     - name: dead_piggies_9
       rect:
         serializedVersion: 2
@@ -214,6 +224,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

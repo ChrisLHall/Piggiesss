@@ -36,7 +36,7 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
     filterMode: 0
@@ -56,6 +56,7 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
@@ -79,6 +80,7 @@ TextureImporter:
         - {x: 10, y: -14}
         - {x: 10, y: -3}
         - {x: 8, y: -2}
+      tessellationDetail: -1
     - name: CorruptedPiggies_1
       rect:
         serializedVersion: 2
@@ -98,6 +100,7 @@ TextureImporter:
         - {x: 14, y: -7}
         - {x: 14, y: -2}
         - {x: 7, y: 2}
+      tessellationDetail: -1
     - name: CorruptedPiggies_2
       rect:
         serializedVersion: 2
@@ -117,6 +120,7 @@ TextureImporter:
         - {x: 16, y: -15}
         - {x: 16, y: 2}
         - {x: 9, y: 10}
+      tessellationDetail: -1
     - name: CorruptedPiggies_3
       rect:
         serializedVersion: 2
@@ -136,6 +140,7 @@ TextureImporter:
         - {x: 16, y: -14}
         - {x: 16, y: 4}
         - {x: 15, y: 8}
+      tessellationDetail: -1
     - name: CorruptedPiggies_4
       rect:
         serializedVersion: 2
@@ -155,6 +160,7 @@ TextureImporter:
         - {x: 14, y: -16}
         - {x: 16, y: -13}
         - {x: 16, y: 12}
+      tessellationDetail: -1
     - name: CorruptedPiggies_5
       rect:
         serializedVersion: 2
@@ -166,6 +172,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: CorruptedPiggies_6
       rect:
         serializedVersion: 2
@@ -177,6 +184,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: CorruptedPiggies_7
       rect:
         serializedVersion: 2
@@ -188,6 +196,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: CorruptedPiggies_8
       rect:
         serializedVersion: 2
@@ -199,6 +208,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: CorruptedPiggies_9
       rect:
         serializedVersion: 2
@@ -210,6 +220,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

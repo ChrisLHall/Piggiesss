@@ -125,7 +125,7 @@ TextureImporter:
   cubemapConvolutionSteps: 7
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
     filterMode: 0
@@ -145,6 +145,7 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
@@ -160,6 +161,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_1
       rect:
         serializedVersion: 2
@@ -171,6 +173,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_2
       rect:
         serializedVersion: 2
@@ -182,6 +185,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_3
       rect:
         serializedVersion: 2
@@ -193,6 +197,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_4
       rect:
         serializedVersion: 2
@@ -204,6 +209,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_5
       rect:
         serializedVersion: 2
@@ -215,6 +221,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_6
       rect:
         serializedVersion: 2
@@ -226,6 +233,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_7
       rect:
         serializedVersion: 2
@@ -237,6 +245,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_8
       rect:
         serializedVersion: 2
@@ -248,6 +257,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_9
       rect:
         serializedVersion: 2
@@ -259,6 +269,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_10
       rect:
         serializedVersion: 2
@@ -270,6 +281,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_11
       rect:
         serializedVersion: 2
@@ -281,6 +293,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_12
       rect:
         serializedVersion: 2
@@ -292,6 +305,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_13
       rect:
         serializedVersion: 2
@@ -303,6 +317,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_14
       rect:
         serializedVersion: 2
@@ -314,6 +329,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_15
       rect:
         serializedVersion: 2
@@ -325,6 +341,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_16
       rect:
         serializedVersion: 2
@@ -336,6 +353,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_17
       rect:
         serializedVersion: 2
@@ -347,6 +365,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_18
       rect:
         serializedVersion: 2
@@ -358,6 +377,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_19
       rect:
         serializedVersion: 2
@@ -369,6 +389,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_20
       rect:
         serializedVersion: 2
@@ -380,6 +401,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_21
       rect:
         serializedVersion: 2
@@ -391,6 +413,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_22
       rect:
         serializedVersion: 2
@@ -402,6 +425,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_23
       rect:
         serializedVersion: 2
@@ -413,6 +437,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_24
       rect:
         serializedVersion: 2
@@ -424,6 +449,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_25
       rect:
         serializedVersion: 2
@@ -435,6 +461,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_26
       rect:
         serializedVersion: 2
@@ -446,6 +473,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_27
       rect:
         serializedVersion: 2
@@ -457,6 +485,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_28
       rect:
         serializedVersion: 2
@@ -468,6 +497,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_29
       rect:
         serializedVersion: 2
@@ -479,6 +509,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_30
       rect:
         serializedVersion: 2
@@ -490,6 +521,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_31
       rect:
         serializedVersion: 2
@@ -501,6 +533,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_32
       rect:
         serializedVersion: 2
@@ -512,6 +545,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_33
       rect:
         serializedVersion: 2
@@ -523,6 +557,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_34
       rect:
         serializedVersion: 2
@@ -534,6 +569,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_35
       rect:
         serializedVersion: 2
@@ -545,6 +581,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_36
       rect:
         serializedVersion: 2
@@ -556,6 +593,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_37
       rect:
         serializedVersion: 2
@@ -567,6 +605,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_38
       rect:
         serializedVersion: 2
@@ -578,6 +617,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_39
       rect:
         serializedVersion: 2
@@ -589,6 +629,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_40
       rect:
         serializedVersion: 2
@@ -600,6 +641,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_41
       rect:
         serializedVersion: 2
@@ -611,6 +653,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_42
       rect:
         serializedVersion: 2
@@ -622,6 +665,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_43
       rect:
         serializedVersion: 2
@@ -633,6 +677,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_44
       rect:
         serializedVersion: 2
@@ -644,6 +689,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_45
       rect:
         serializedVersion: 2
@@ -655,6 +701,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_46
       rect:
         serializedVersion: 2
@@ -666,6 +713,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_47
       rect:
         serializedVersion: 2
@@ -677,6 +725,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_48
       rect:
         serializedVersion: 2
@@ -688,6 +737,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_49
       rect:
         serializedVersion: 2
@@ -699,6 +749,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_50
       rect:
         serializedVersion: 2
@@ -710,6 +761,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_51
       rect:
         serializedVersion: 2
@@ -721,6 +773,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_52
       rect:
         serializedVersion: 2
@@ -732,6 +785,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_53
       rect:
         serializedVersion: 2
@@ -743,6 +797,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_54
       rect:
         serializedVersion: 2
@@ -754,6 +809,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_55
       rect:
         serializedVersion: 2
@@ -765,6 +821,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_56
       rect:
         serializedVersion: 2
@@ -776,6 +833,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_57
       rect:
         serializedVersion: 2
@@ -787,6 +845,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_58
       rect:
         serializedVersion: 2
@@ -798,6 +857,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_59
       rect:
         serializedVersion: 2
@@ -809,6 +869,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_60
       rect:
         serializedVersion: 2
@@ -820,6 +881,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_61
       rect:
         serializedVersion: 2
@@ -831,6 +893,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_62
       rect:
         serializedVersion: 2
@@ -842,6 +905,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_63
       rect:
         serializedVersion: 2
@@ -853,6 +917,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_64
       rect:
         serializedVersion: 2
@@ -864,6 +929,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_65
       rect:
         serializedVersion: 2
@@ -875,6 +941,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_66
       rect:
         serializedVersion: 2
@@ -886,6 +953,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_67
       rect:
         serializedVersion: 2
@@ -897,6 +965,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_68
       rect:
         serializedVersion: 2
@@ -908,6 +977,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_69
       rect:
         serializedVersion: 2
@@ -919,6 +989,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_70
       rect:
         serializedVersion: 2
@@ -930,6 +1001,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_71
       rect:
         serializedVersion: 2
@@ -941,6 +1013,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_72
       rect:
         serializedVersion: 2
@@ -952,6 +1025,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_73
       rect:
         serializedVersion: 2
@@ -963,6 +1037,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_74
       rect:
         serializedVersion: 2
@@ -974,6 +1049,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_75
       rect:
         serializedVersion: 2
@@ -985,6 +1061,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_76
       rect:
         serializedVersion: 2
@@ -996,6 +1073,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_77
       rect:
         serializedVersion: 2
@@ -1007,6 +1085,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_78
       rect:
         serializedVersion: 2
@@ -1018,6 +1097,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_79
       rect:
         serializedVersion: 2
@@ -1029,6 +1109,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_80
       rect:
         serializedVersion: 2
@@ -1040,6 +1121,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_81
       rect:
         serializedVersion: 2
@@ -1051,6 +1133,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_82
       rect:
         serializedVersion: 2
@@ -1062,6 +1145,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_83
       rect:
         serializedVersion: 2
@@ -1073,6 +1157,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_84
       rect:
         serializedVersion: 2
@@ -1084,6 +1169,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_85
       rect:
         serializedVersion: 2
@@ -1095,6 +1181,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_86
       rect:
         serializedVersion: 2
@@ -1106,6 +1193,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_87
       rect:
         serializedVersion: 2
@@ -1117,6 +1205,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_88
       rect:
         serializedVersion: 2
@@ -1128,6 +1217,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_89
       rect:
         serializedVersion: 2
@@ -1139,6 +1229,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_90
       rect:
         serializedVersion: 2
@@ -1150,6 +1241,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_91
       rect:
         serializedVersion: 2
@@ -1161,6 +1253,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_92
       rect:
         serializedVersion: 2
@@ -1172,6 +1265,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     - name: yellowfont_93
       rect:
         serializedVersion: 2
@@ -1183,6 +1277,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 
